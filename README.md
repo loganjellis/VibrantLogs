@@ -16,5 +16,5 @@ For an example of basic usage of the library, refer to `example.c`.
 ## Contents
 
 - `include/` - Public headers (`vibrant_logs.h`)
-- `lib/static/` - Static library (`VibrantLogs.lib`)
-- `lib/dynamic/` - Dynamic library (`VibrantLogs.dll` + `VibrantLogs.lib`)
+- `lib/static/` - Static library (`vibrant_logs.lib`)
+- `lib/dynamic/` - Dynamic library (`vibrant_logs.dll` + `vibrant_logs.lib`)
