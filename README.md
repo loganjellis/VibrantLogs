@@ -8,6 +8,6 @@ Please refer to the VibrantLogs documentation <a href="docs/html/index.html" tar
 
 ## Contents
 
-- 'include/' - Public headers ('vibrant_logs.h')
-- 'lib/static/' - Static library ('VibrantLogs.lib')
-- 'lib/dynamic/' - Dynamic library ('VibrantLogs.dll' + 'VibrantLogs.lib')
+- `include/` - Public headers (`vibrant_logs.h`)
+- `lib/static/` - Static library (`VibrantLogs.lib`)
+- `lib/dynamic/` - Dynamic library (`VibrantLogs.dll` + `VibrantLogs.lib`)
