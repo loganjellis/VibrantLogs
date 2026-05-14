@@ -1,15 +1,6 @@
 #pragma once
 
 /**
-  Used to indicate a function has failed in some way.
-*/
-#define VIB_LOGS_FAIL 0
-/**
-  Used to indicate a function has succeeded.
-*/
-#define VIB_LOGS_SUCCESS 1
-
-/**
   Represents the type of a log statement.
 */
 typedef enum
@@ -22,7 +13,7 @@ typedef enum
 	  Used to signal that an operation
 	  was successful.
 	*/
-	VIB_LOGS_SUCCESSFUL_OPERATION,
+	VIB_LOGS_SUCCESS,
 	/**
 	  Used to debug a value or expression.
 	*/
@@ -171,16 +162,12 @@ typedef struct vib_logs_color_scheme
 		.error_color = VIB_LOGS_RED \
 	};
 
-#ifdef _WIN32
-	#ifdef VIB_LOGS_EXPORTS
-		#define VIB_LOGS_API __declspec(dllexport)
-	#elif defined(VIB_LOGS_STATIC)
-		#define VIB_LOGS_API
-	#else
-		#define VIB_LOGS_API __declspec(dllimport)
-	#endif
-#else
+#ifdef VIB_LOGS_EXPORTS
+	#define VIB_LOGS_API __declspec(dllexport)
+#elif defined(VIB_LOGS_STATIC)
 	#define VIB_LOGS_API
+#else
+	#define VIB_LOGS_API __declspec(dllimport)
 #endif
 
 /**
@@ -205,7 +192,7 @@ VIB_LOGS_API vib_logs_color_scheme *vib_logs_curr_colors(void);
   value must be at least 12 bytes to view the full
   time string.
 
-  @return Either VIB_LOGS_FAIL or VIB_LOGS_SUCCESS.
+  @return 1 on success, 0 on failure.
 */
 VIB_LOGS_API int vib_logs_get_time(char *buffer, size_t size);
 
@@ -215,7 +202,7 @@ VIB_LOGS_API int vib_logs_get_time(char *buffer, size_t size);
   @note The max length of a VibrantLogs message
   is 256 characters.
 
-  @return Either VIB_LOGS_FAIL or VIB_LOGS_SUCCESS.
+  @return 1 on success, 0 on failure.
 */
 VIB_LOGS_API int vib_logs_log(vib_logs_type log_type, const char *fmt, ...);
 /**
@@ -224,7 +211,7 @@ VIB_LOGS_API int vib_logs_log(vib_logs_type log_type, const char *fmt, ...);
   @note The max length of a VibrantLogs message
   is 256 characters.
 
-  @return Either VIB_LOGS_FAIL or VIB_LOGS_SUCCESS.
+  @return 1 on success, 0 on failure.
 */
 VIB_LOGS_API int vib_logs_delay_log(vib_logs_type log_type, float seconds, const char *fmt, ...);
 /**

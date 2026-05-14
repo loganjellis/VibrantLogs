@@ -13,7 +13,7 @@ int main(void)
 
 	// testing each log type:
 	vib_logs_log(VIB_LOGS_INFO, "Info test.");
-	vib_logs_log(VIB_LOGS_SUCCESSFUL_OPERATION, "Success!");
+	vib_logs_log(VIB_LOGS_SUCCESS, "Success!");
 	vib_logs_log(VIB_LOGS_DEBUG, "Debugging...");
 	vib_logs_log(VIB_LOGS_WARNING, "Warning.");
 	vib_logs_log(VIB_LOGS_ERROR, "ERROR!");
