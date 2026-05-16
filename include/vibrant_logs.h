@@ -175,6 +175,23 @@ typedef struct vl_color_scheme
 #endif
 
 /**
+  Sets the log level of VibrantLogs.
+
+  Setting the log level will prevent VibrantLogs
+  from printing certain log messages based on their
+  type. For example, setting the log level to VL_WARNING
+  means VibrantLogs can only print out warning and error
+  messages. Setting it to VL_ERROR means only error messages
+  can be printed. By default, the log level is set to
+  VL_INFO, which means any type of message can be printed.
+
+  @note VL_SUCCESS and VL_DEBUG are exceptions to this
+  rule. No matter the log level of VibrantLogs, these
+  types of messages will always print.
+*/
+VL_API void vl_set_log_level(vl_type level);
+
+/**
   Sets the color scheme of VibrantLogs.
 
   The initial color scheme of VibrantLogs

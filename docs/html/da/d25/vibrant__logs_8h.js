@@ -29,5 +29,6 @@ var vibrant__logs_8h =
     [ "vl_get_time", "da/d25/vibrant__logs_8h.html#a2f1299f9d2bc59c87446b1bb210b096f", null ],
     [ "vl_log", "da/d25/vibrant__logs_8h.html#aed16ae1b5919bc99745d1ec9f73dfd11", null ],
     [ "vl_set_colors", "da/d25/vibrant__logs_8h.html#af6a8f755c0e8a03fffe522fb8b9fa43f", null ],
+    [ "vl_set_log_level", "da/d25/vibrant__logs_8h.html#ac683bd7ea5a24e00769db7d82dfc5372", null ],
     [ "vl_update", "da/d25/vibrant__logs_8h.html#a7c3bc1bdde8cfea404719232bc4874df", null ]
 ];

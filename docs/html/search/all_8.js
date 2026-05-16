@@ -22,10 +22,11 @@ var searchData=
   ['vl_5forange_19',['VL_ORANGE',['../da/d25/vibrant__logs_8h.html#aa93e2578a4e246ca25f31529971f3d85',1,'vibrant_logs.h']]],
   ['vl_5fred_20',['VL_RED',['../da/d25/vibrant__logs_8h.html#acb9972b300e7783156ec6ff61767f427',1,'vibrant_logs.h']]],
   ['vl_5fset_5fcolors_21',['vl_set_colors',['../da/d25/vibrant__logs_8h.html#af6a8f755c0e8a03fffe522fb8b9fa43f',1,'vibrant_logs.h']]],
-  ['vl_5fsuccess_22',['VL_SUCCESS',['../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd',1,'vibrant_logs.h']]],
-  ['vl_5ftype_23',['vl_type',['../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44',1,'vibrant_logs.h']]],
-  ['vl_5fupdate_24',['vl_update',['../da/d25/vibrant__logs_8h.html#a7c3bc1bdde8cfea404719232bc4874df',1,'vibrant_logs.h']]],
-  ['vl_5fwarning_25',['VL_WARNING',['../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192',1,'vibrant_logs.h']]],
-  ['vl_5fwhite_26',['VL_WHITE',['../da/d25/vibrant__logs_8h.html#a0ffa3cb5f259b57e371c0b8bab674f08',1,'vibrant_logs.h']]],
-  ['vl_5fyellow_27',['VL_YELLOW',['../da/d25/vibrant__logs_8h.html#a8fd4fbb3180e269b486cf3101ca6df14',1,'vibrant_logs.h']]]
+  ['vl_5fset_5flog_5flevel_22',['vl_set_log_level',['../da/d25/vibrant__logs_8h.html#ac683bd7ea5a24e00769db7d82dfc5372',1,'vibrant_logs.h']]],
+  ['vl_5fsuccess_23',['VL_SUCCESS',['../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd',1,'vibrant_logs.h']]],
+  ['vl_5ftype_24',['vl_type',['../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44',1,'vibrant_logs.h']]],
+  ['vl_5fupdate_25',['vl_update',['../da/d25/vibrant__logs_8h.html#a7c3bc1bdde8cfea404719232bc4874df',1,'vibrant_logs.h']]],
+  ['vl_5fwarning_26',['VL_WARNING',['../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192',1,'vibrant_logs.h']]],
+  ['vl_5fwhite_27',['VL_WHITE',['../da/d25/vibrant__logs_8h.html#a0ffa3cb5f259b57e371c0b8bab674f08',1,'vibrant_logs.h']]],
+  ['vl_5fyellow_28',['VL_YELLOW',['../da/d25/vibrant__logs_8h.html#a8fd4fbb3180e269b486cf3101ca6df14',1,'vibrant_logs.h']]]
 ];
