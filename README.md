@@ -3,9 +3,7 @@
 **VibrantLogs** is a logging library written in C. This repository contains the **header file** and precompiled **static and dynamic libraries**. The source code is closed.
 
 The name VibrantLogs comes from the fact that the library prints in very bright colors. But the library also allows the user to set
-custom colors using viblogs_color_scheme structs. The user can edit the prefix color as well as the main color of each message type.
-
-For simplicity, the library is ***not*** cross-platform and is intended for use on Windows.
+custom colors using vl_color_scheme structs. The user can edit the prefix color as well as the main color of each message type.
 
 ## Documentation and Information
 
