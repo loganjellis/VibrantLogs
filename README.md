@@ -2,7 +2,8 @@
 
 **VibrantLogs** is a simple logging library in C with colored terminal output and customizable color schemes.
 
-**Warning**: VibrantLogs is not thread-safe as of right now.
+> [!NOTE]
+> VibrantLogs is not thread-safe as of right now.
 
 ## Features
 
