@@ -165,8 +165,6 @@ typedef struct vl_color_scheme
 #ifdef _WIN32
 	#ifdef VL_EXPORTS
 		#define VL_API __declspec(dllexport)
-	#elif defined(VL_STATIC)
-		#define VL_API
 	#else
 		#define VL_API __declspec(dllimport)
 	#endif
