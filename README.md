@@ -1,18 +1,22 @@
 # VibrantLogs
 
-**VibrantLogs** is a logging library written in C. This repository contains all the necessary resources to use the VibrantLogs library.
-
-The name VibrantLogs comes from the fact that the library prints in very bright colors. But the library also allows the user to set
-custom colors using vl_color_scheme structs. The user can edit the prefix color as well as the main color of each message type.
+**VibrantLogs** is a simple logging library in C with colored terminal output and customizable color schemes.
 
 ## Installation
 
 ```
+git clone https://github.com/loganjellis/VibrantLogs.git VibrantLogs
+cd VibrantLogs
+
 cmake -S . -B build
 cmake --build build
 cmake --install build --prefix ./install
+```
 
-list(APPEND CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/install")
+### Using VibrantLogs (installed package)
+
+```
+list(APPEND CMAKE_PREFIX_PATH "/path/to/vibrant_logs/install")
 find_package(VibrantLogs REQUIRED)
 target_link_libraries(app PRIVATE VibrantLogs::vibrant_logs)
 ```
@@ -20,7 +24,7 @@ target_link_libraries(app PRIVATE VibrantLogs::vibrant_logs)
 Note that ./install is a placeholder install location for the library. Omitting the install
 location results in the library being installed in the operating system's default path.
 
-## Use as a subdirectory
+### Using VibrantLogs (subdirectory)
 
 ```
 add_subdirectory(VibrantLogs)
