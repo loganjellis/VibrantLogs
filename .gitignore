@@ -2,5 +2,4 @@ build.bat
 CMakeLists.txt
 .cache/
 build/
-src/
 Doxyfile
