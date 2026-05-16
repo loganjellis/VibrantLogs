@@ -2,16 +2,32 @@
 
 **VibrantLogs** is a simple logging library in C with colored terminal output and customizable color schemes.
 
-## Installation
+**Warning**: VibrantLogs is not thread-safe as of right now.
+
+## Features
+
+- Colored terminal output
+- Fully customizable RGB colors
+- Multiple log levels
+- Delayed log messages
+
+## Clone the repository
 
 ```
-git clone https://github.com/loganjellis/VibrantLogs.git VibrantLogs
+git clone https://github.com/loganjellis/VibrantLogs.git
 cd VibrantLogs
+```
 
+## Building (and optionally installing)
+
+```
 cmake -S . -B build
 cmake --build build
-cmake --install build --prefix ./install
+(only include this line if you want to install VibrantLogs) cmake --install build --prefix ./install
 ```
+
+Note that ./install is a placeholder install location for the library. Omitting the install
+location results in the library being installed in the operating system's default path.
 
 ### Using VibrantLogs (installed package)
 
@@ -21,9 +37,6 @@ find_package(VibrantLogs REQUIRED)
 target_link_libraries(app PRIVATE VibrantLogs::vibrant_logs)
 ```
 
-Note that ./install is a placeholder install location for the library. Omitting the install
-location results in the library being installed in the operating system's default path.
-
 ### Using VibrantLogs (subdirectory)
 
 ```
@@ -31,9 +44,7 @@ add_subdirectory(VibrantLogs)
 target_link_libraries(app PRIVATE VibrantLogs::vibrant_logs)
 ```
 
-## Documentation and Information
-
-Please refer to the VibrantLogs documentation <a href="docs/html" target="_blank">here</a>.
+## Example
 
 For an example of basic usage of the library, refer to `example.c`:
 
@@ -69,3 +80,7 @@ int main(void)
 	vl_log(VL_ERROR, "ERROR!");
 }
 ```
+
+## Documentation and Information
+
+Please refer to the VibrantLogs documentation <a href="docs/html" target="_blank">here</a>.
