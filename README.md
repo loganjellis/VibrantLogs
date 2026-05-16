@@ -7,7 +7,7 @@ custom colors using vl_color_scheme structs. The user can edit the prefix color 
 
 ## Documentation and Information
 
-Please refer to the VibrantLogs documentation <a href="docs/html/index.html" target="_blank">here</a>.
+Please refer to the VibrantLogs documentation <a href="docs/html" target="_blank">here</a>.
 
 For an example of basic usage of the library, refer to `example.c`.
 
