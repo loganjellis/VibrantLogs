@@ -1,4 +1,6 @@
-![VibrantLogs Logo](./logo.png)
+<div align="center">
+    <img src="./logo.png" alt="VibrantLogs logo">
+</div>
 
 # VibrantLogs
 
