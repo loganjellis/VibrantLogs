@@ -31,8 +31,8 @@ cmake --build build
 (only include this line if you want to install VibrantLogs) cmake --install build --prefix ./install
 ```
 
-Note that ./install is a placeholder install location for the library. Omitting the install
-location results in the library being installed in the operating system's default path.
+> [!NOTE]
+> Note that ./install is a placeholder install location for the library. Omitting the install location results in the library being installed in the operating system's default path.
 
 ### Using VibrantLogs (installed package)
 
