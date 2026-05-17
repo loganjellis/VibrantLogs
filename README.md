@@ -1,3 +1,5 @@
+![VibrantLogs Logo](./logo.png)
+
 # VibrantLogs
 
 **VibrantLogs** is a simple logging library in C with colored terminal output and customizable color schemes.
