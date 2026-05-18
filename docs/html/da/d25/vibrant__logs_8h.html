@@ -92,7 +92,8 @@ $(function(){initNavTree('da/d25/vibrant__logs_8h.html','../../',''); });
   <div class="headertitle"><div class="title">vibrant_logs.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+</div>
 <p><a href="../../da/d25/vibrant__logs_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -135,13 +136,16 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a9e2f27e0e7a53c27935b7cbe66d0e2fb" id="r_a9e2f27e0e7a53c27935b7cbe66d0e2fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e2f27e0e7a53c27935b7cbe66d0e2fb">vl_init</a> (void)</td></tr>
+<tr class="memitem:a87369d1d15dd31ccb461e011c33dca89" id="r_a87369d1d15dd31ccb461e011c33dca89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87369d1d15dd31ccb461e011c33dca89">vl_set_output_destination</a> (FILE *dest)</td></tr>
 <tr class="memitem:ac683bd7ea5a24e00769db7d82dfc5372" id="r_ac683bd7ea5a24e00769db7d82dfc5372"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac683bd7ea5a24e00769db7d82dfc5372">vl_set_log_level</a> (<a class="el" href="#a475d66700920956bc28bd93c12369c44">vl_type</a> level)</td></tr>
 <tr class="memitem:af6a8f755c0e8a03fffe522fb8b9fa43f" id="r_af6a8f755c0e8a03fffe522fb8b9fa43f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6a8f755c0e8a03fffe522fb8b9fa43f">vl_set_colors</a> (<a class="el" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a> color_scheme)</td></tr>
 <tr class="memitem:a77b05543c1c5fb53ec038e30decd83c0" id="r_a77b05543c1c5fb53ec038e30decd83c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77b05543c1c5fb53ec038e30decd83c0">vl_curr_colors</a> (void)</td></tr>
 <tr class="memitem:a2f1299f9d2bc59c87446b1bb210b096f" id="r_a2f1299f9d2bc59c87446b1bb210b096f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f1299f9d2bc59c87446b1bb210b096f">vl_get_time</a> (char *buffer, size_t size)</td></tr>
+<tr class="memitem:a8bae9d235282b2d9b76ddf0bd57acc05" id="r_a8bae9d235282b2d9b76ddf0bd57acc05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bae9d235282b2d9b76ddf0bd57acc05">vl_get_str</a> (char *buffer, size_t size, const char *fmt,...)</td></tr>
 <tr class="memitem:aed16ae1b5919bc99745d1ec9f73dfd11" id="r_aed16ae1b5919bc99745d1ec9f73dfd11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed16ae1b5919bc99745d1ec9f73dfd11">vl_log</a> (<a class="el" href="#a475d66700920956bc28bd93c12369c44">vl_type</a> log_type, const char *fmt,...)</td></tr>
-<tr class="memitem:ab1d03ec724754edae4bc78a5801753c5" id="r_ab1d03ec724754edae4bc78a5801753c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1d03ec724754edae4bc78a5801753c5">vl_delay_log</a> (<a class="el" href="#a475d66700920956bc28bd93c12369c44">vl_type</a> log_type, float seconds, const char *fmt,...)</td></tr>
-<tr class="memitem:a7c3bc1bdde8cfea404719232bc4874df" id="r_a7c3bc1bdde8cfea404719232bc4874df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c3bc1bdde8cfea404719232bc4874df">vl_update</a> (float delta_time)</td></tr>
+<tr class="memitem:a3d9432f7fd8699928a2dad27c4378119" id="r_a3d9432f7fd8699928a2dad27c4378119"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d9432f7fd8699928a2dad27c4378119">vl_delay_log</a> (<a class="el" href="#a475d66700920956bc28bd93c12369c44">vl_type</a> log_type, double seconds, const char *fmt,...)</td></tr>
+<tr class="memitem:ae2d8bb8d6aa8619f61374ab674078cee" id="r_ae2d8bb8d6aa8619f61374ab674078cee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2d8bb8d6aa8619f61374ab674078cee">vl_update</a> (double delta_time)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="ab7587fd8373e10d56375c7829aefbe95" name="ab7587fd8373e10d56375c7829aefbe95"></a>
@@ -156,9 +160,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">172</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">174</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#a77b05543c1c5fb53ec038e30decd83c0">vl_curr_colors()</a>, <a class="el" href="#ab1d03ec724754edae4bc78a5801753c5">vl_delay_log()</a>, <a class="el" href="#a2f1299f9d2bc59c87446b1bb210b096f">vl_get_time()</a>, <a class="el" href="#aed16ae1b5919bc99745d1ec9f73dfd11">vl_log()</a>, <a class="el" href="#af6a8f755c0e8a03fffe522fb8b9fa43f">vl_set_colors()</a>, <a class="el" href="#ac683bd7ea5a24e00769db7d82dfc5372">vl_set_log_level()</a>, and <a class="el" href="#a7c3bc1bdde8cfea404719232bc4874df">vl_update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#a77b05543c1c5fb53ec038e30decd83c0">vl_curr_colors()</a>, <a class="el" href="#a3d9432f7fd8699928a2dad27c4378119">vl_delay_log()</a>, <a class="el" href="#a8bae9d235282b2d9b76ddf0bd57acc05">vl_get_str()</a>, <a class="el" href="#a2f1299f9d2bc59c87446b1bb210b096f">vl_get_time()</a>, <a class="el" href="#a9e2f27e0e7a53c27935b7cbe66d0e2fb">vl_init()</a>, <a class="el" href="#aed16ae1b5919bc99745d1ec9f73dfd11">vl_log()</a>, <a class="el" href="#af6a8f755c0e8a03fffe522fb8b9fa43f">vl_set_colors()</a>, <a class="el" href="#ac683bd7ea5a24e00769db7d82dfc5372">vl_set_log_level()</a>, <a class="el" href="#a87369d1d15dd31ccb461e011c33dca89">vl_set_output_destination()</a>, and <a class="el" href="#ae2d8bb8d6aa8619f61374ab674078cee">vl_update()</a>.</p>
 
 </div>
 </div>
@@ -175,7 +179,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Blue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00061">61</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00063">63</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -203,34 +207,34 @@ Functions</h2></td></tr>
 <div class="line">        .error_prefix_color = <a class="code hl_define" href="#af961e4b6172afea921d9c6047937aef8">VL_LIGHT_RED</a>, \</div>
 <div class="line">        .error_color = <a class="code hl_define" href="#acb9972b300e7783156ec6ff61767f427">VL_RED</a> \</div>
 <div class="line">    };</div>
-<div class="ttc" id="astructvl__color__scheme_html"><div class="ttname"><a href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a></div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00100">vibrant_logs.h:101</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a0ffa3cb5f259b57e371c0b8bab674f08"><div class="ttname"><a href="#a0ffa3cb5f259b57e371c0b8bab674f08">VL_WHITE</a></div><div class="ttdeci">#define VL_WHITE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00053">vibrant_logs.h:53</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a3971e2ef46a64ac730a11e931a737717"><div class="ttname"><a href="#a3971e2ef46a64ac730a11e931a737717">VL_BLUE</a></div><div class="ttdeci">#define VL_BLUE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00061">vibrant_logs.h:61</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a4b54e23200949682389839948f18243d"><div class="ttname"><a href="#a4b54e23200949682389839948f18243d">VL_LIGHT_BLUE</a></div><div class="ttdeci">#define VL_LIGHT_BLUE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00057">vibrant_logs.h:57</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a8487d40b3156b8fd47778e705987c760"><div class="ttname"><a href="#a8487d40b3156b8fd47778e705987c760">VL_GREEN</a></div><div class="ttdeci">#define VL_GREEN</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00069">vibrant_logs.h:69</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a8fd4fbb3180e269b486cf3101ca6df14"><div class="ttname"><a href="#a8fd4fbb3180e269b486cf3101ca6df14">VL_YELLOW</a></div><div class="ttdeci">#define VL_YELLOW</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00085">vibrant_logs.h:85</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a980846dcfd71018be9040435028a7403"><div class="ttname"><a href="#a980846dcfd71018be9040435028a7403">VL_LIGHT_ORANGE</a></div><div class="ttdeci">#define VL_LIGHT_ORANGE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00073">vibrant_logs.h:73</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a9b940a128aac0555aa71bebcd48de522"><div class="ttname"><a href="#a9b940a128aac0555aa71bebcd48de522">VL_LIGHT_YELLOW</a></div><div class="ttdeci">#define VL_LIGHT_YELLOW</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00081">vibrant_logs.h:81</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_aa93e2578a4e246ca25f31529971f3d85"><div class="ttname"><a href="#aa93e2578a4e246ca25f31529971f3d85">VL_ORANGE</a></div><div class="ttdeci">#define VL_ORANGE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00077">vibrant_logs.h:77</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_acb9972b300e7783156ec6ff61767f427"><div class="ttname"><a href="#acb9972b300e7783156ec6ff61767f427">VL_RED</a></div><div class="ttdeci">#define VL_RED</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00093">vibrant_logs.h:93</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_af961e4b6172afea921d9c6047937aef8"><div class="ttname"><a href="#af961e4b6172afea921d9c6047937aef8">VL_LIGHT_RED</a></div><div class="ttdeci">#define VL_LIGHT_RED</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00089">vibrant_logs.h:89</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_afb3d35002b7a8ae6d506d6305c4e52d8"><div class="ttname"><a href="#afb3d35002b7a8ae6d506d6305c4e52d8">VL_LIGHT_GREEN</a></div><div class="ttdeci">#define VL_LIGHT_GREEN</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00065">vibrant_logs.h:65</a></div></div>
+<div class="ttc" id="astructvl__color__scheme_html"><div class="ttname"><a href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a></div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00102">vibrant_logs.h:103</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a0ffa3cb5f259b57e371c0b8bab674f08"><div class="ttname"><a href="#a0ffa3cb5f259b57e371c0b8bab674f08">VL_WHITE</a></div><div class="ttdeci">#define VL_WHITE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00055">vibrant_logs.h:55</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a3971e2ef46a64ac730a11e931a737717"><div class="ttname"><a href="#a3971e2ef46a64ac730a11e931a737717">VL_BLUE</a></div><div class="ttdeci">#define VL_BLUE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00063">vibrant_logs.h:63</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a4b54e23200949682389839948f18243d"><div class="ttname"><a href="#a4b54e23200949682389839948f18243d">VL_LIGHT_BLUE</a></div><div class="ttdeci">#define VL_LIGHT_BLUE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00059">vibrant_logs.h:59</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a8487d40b3156b8fd47778e705987c760"><div class="ttname"><a href="#a8487d40b3156b8fd47778e705987c760">VL_GREEN</a></div><div class="ttdeci">#define VL_GREEN</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00071">vibrant_logs.h:71</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a8fd4fbb3180e269b486cf3101ca6df14"><div class="ttname"><a href="#a8fd4fbb3180e269b486cf3101ca6df14">VL_YELLOW</a></div><div class="ttdeci">#define VL_YELLOW</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00087">vibrant_logs.h:87</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a980846dcfd71018be9040435028a7403"><div class="ttname"><a href="#a980846dcfd71018be9040435028a7403">VL_LIGHT_ORANGE</a></div><div class="ttdeci">#define VL_LIGHT_ORANGE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00075">vibrant_logs.h:75</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a9b940a128aac0555aa71bebcd48de522"><div class="ttname"><a href="#a9b940a128aac0555aa71bebcd48de522">VL_LIGHT_YELLOW</a></div><div class="ttdeci">#define VL_LIGHT_YELLOW</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00083">vibrant_logs.h:83</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_aa93e2578a4e246ca25f31529971f3d85"><div class="ttname"><a href="#aa93e2578a4e246ca25f31529971f3d85">VL_ORANGE</a></div><div class="ttdeci">#define VL_ORANGE</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00079">vibrant_logs.h:79</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_acb9972b300e7783156ec6ff61767f427"><div class="ttname"><a href="#acb9972b300e7783156ec6ff61767f427">VL_RED</a></div><div class="ttdeci">#define VL_RED</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00095">vibrant_logs.h:95</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_af961e4b6172afea921d9c6047937aef8"><div class="ttname"><a href="#af961e4b6172afea921d9c6047937aef8">VL_LIGHT_RED</a></div><div class="ttdeci">#define VL_LIGHT_RED</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00091">vibrant_logs.h:91</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_afb3d35002b7a8ae6d506d6305c4e52d8"><div class="ttname"><a href="#afb3d35002b7a8ae6d506d6305c4e52d8">VL_LIGHT_GREEN</a></div><div class="ttdeci">#define VL_LIGHT_GREEN</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00067">vibrant_logs.h:67</a></div></div>
 </div><!-- fragment --><p>Obtains the default color scheme of VibrantLogs. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00151">151</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  151</span><span class="preprocessor">#define VL_DEFAULT_COLORS (vl_color_scheme) { \</span></div>
-<div class="line"><span class="lineno">  152</span><span class="preprocessor">        .time_color = VL_WHITE, \</span></div>
-<div class="line"><span class="lineno">  153</span><span class="preprocessor">        .info_prefix_color = VL_LIGHT_BLUE, \</span></div>
-<div class="line"><span class="lineno">  154</span><span class="preprocessor">        .info_color = VL_BLUE, \</span></div>
-<div class="line"><span class="lineno">  155</span><span class="preprocessor">        .success_prefix_color = VL_LIGHT_GREEN, \</span></div>
-<div class="line"><span class="lineno">  156</span><span class="preprocessor">        .success_color = VL_GREEN, \</span></div>
-<div class="line"><span class="lineno">  157</span><span class="preprocessor">        .debug_prefix_color = VL_LIGHT_ORANGE, \</span></div>
-<div class="line"><span class="lineno">  158</span><span class="preprocessor">        .debug_color = VL_ORANGE, \</span></div>
-<div class="line"><span class="lineno">  159</span><span class="preprocessor">        .warning_prefix_color = VL_LIGHT_YELLOW, \</span></div>
-<div class="line"><span class="lineno">  160</span><span class="preprocessor">        .warning_color = VL_YELLOW, \</span></div>
-<div class="line"><span class="lineno">  161</span><span class="preprocessor">        .error_prefix_color = VL_LIGHT_RED, \</span></div>
-<div class="line"><span class="lineno">  162</span><span class="preprocessor">        .error_color = VL_RED \</span></div>
-<div class="line"><span class="lineno">  163</span><span class="preprocessor">    };</span></div>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00153">153</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  153</span><span class="preprocessor">#define VL_DEFAULT_COLORS (vl_color_scheme) { \</span></div>
+<div class="line"><span class="lineno">  154</span><span class="preprocessor">        .time_color = VL_WHITE, \</span></div>
+<div class="line"><span class="lineno">  155</span><span class="preprocessor">        .info_prefix_color = VL_LIGHT_BLUE, \</span></div>
+<div class="line"><span class="lineno">  156</span><span class="preprocessor">        .info_color = VL_BLUE, \</span></div>
+<div class="line"><span class="lineno">  157</span><span class="preprocessor">        .success_prefix_color = VL_LIGHT_GREEN, \</span></div>
+<div class="line"><span class="lineno">  158</span><span class="preprocessor">        .success_color = VL_GREEN, \</span></div>
+<div class="line"><span class="lineno">  159</span><span class="preprocessor">        .debug_prefix_color = VL_LIGHT_ORANGE, \</span></div>
+<div class="line"><span class="lineno">  160</span><span class="preprocessor">        .debug_color = VL_ORANGE, \</span></div>
+<div class="line"><span class="lineno">  161</span><span class="preprocessor">        .warning_prefix_color = VL_LIGHT_YELLOW, \</span></div>
+<div class="line"><span class="lineno">  162</span><span class="preprocessor">        .warning_color = VL_YELLOW, \</span></div>
+<div class="line"><span class="lineno">  163</span><span class="preprocessor">        .error_prefix_color = VL_LIGHT_RED, \</span></div>
+<div class="line"><span class="lineno">  164</span><span class="preprocessor">        .error_color = VL_RED \</span></div>
+<div class="line"><span class="lineno">  165</span><span class="preprocessor">    };</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -247,7 +251,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Green. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00069">69</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00071">71</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -264,7 +268,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Light blue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00057">57</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00059">59</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -281,7 +285,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Light green. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00065">65</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00067">67</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -298,7 +302,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Light orange. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00073">73</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00075">75</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -315,7 +319,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Light red. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00089">89</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00091">91</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -332,7 +336,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Light yellow. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00081">81</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00083">83</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +353,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Orange. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00077">77</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00079">79</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -366,7 +370,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Red. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00093">93</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00095">95</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -383,7 +387,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>White. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00053">53</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00055">55</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -400,7 +404,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Yellow. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00085">85</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00087">87</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -462,20 +466,20 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00006">6</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    7</span>{</div>
-<div class="line"><span class="lineno">   11</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44a078d6f64cf94ce7f26fda3aab81f8cdc">VL_INFO</a>,</div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd">VL_SUCCESS</a>,</div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44ad8b926aa55cae5b3c99d71819ce4de6f">VL_DEBUG</a>,</div>
-<div class="line"><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192">VL_WARNING</a>,</div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44acfccc9885eb9bc26bac52bfeac7f2871">VL_ERROR</a></div>
-<div class="line"><span class="lineno">   29</span>} <a class="code hl_enumeration" href="#a475d66700920956bc28bd93c12369c44">vl_type</a>;</div>
-<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44">vl_type</a></div><div class="ttdeci">vl_type</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00006">vibrant_logs.h:7</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44a078d6f64cf94ce7f26fda3aab81f8cdc"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44a078d6f64cf94ce7f26fda3aab81f8cdc">VL_INFO</a></div><div class="ttdeci">@ VL_INFO</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00011">vibrant_logs.h:11</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192">VL_WARNING</a></div><div class="ttdeci">@ VL_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00024">vibrant_logs.h:24</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd">VL_SUCCESS</a></div><div class="ttdeci">@ VL_SUCCESS</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00016">vibrant_logs.h:16</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44acfccc9885eb9bc26bac52bfeac7f2871"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44acfccc9885eb9bc26bac52bfeac7f2871">VL_ERROR</a></div><div class="ttdeci">@ VL_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00028">vibrant_logs.h:28</a></div></div>
-<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44ad8b926aa55cae5b3c99d71819ce4de6f"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44ad8b926aa55cae5b3c99d71819ce4de6f">VL_DEBUG</a></div><div class="ttdeci">@ VL_DEBUG</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00020">vibrant_logs.h:20</a></div></div>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00008">8</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>{</div>
+<div class="line"><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44a078d6f64cf94ce7f26fda3aab81f8cdc">VL_INFO</a>,</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd">VL_SUCCESS</a>,</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44ad8b926aa55cae5b3c99d71819ce4de6f">VL_DEBUG</a>,</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192">VL_WARNING</a>,</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="#a475d66700920956bc28bd93c12369c44acfccc9885eb9bc26bac52bfeac7f2871">VL_ERROR</a></div>
+<div class="line"><span class="lineno">   31</span>} <a class="code hl_enumeration" href="#a475d66700920956bc28bd93c12369c44">vl_type</a>;</div>
+<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44">vl_type</a></div><div class="ttdeci">vl_type</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00008">vibrant_logs.h:9</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44a078d6f64cf94ce7f26fda3aab81f8cdc"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44a078d6f64cf94ce7f26fda3aab81f8cdc">VL_INFO</a></div><div class="ttdeci">@ VL_INFO</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00013">vibrant_logs.h:13</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44a397c7ead0996132b5982a916efa23192">VL_WARNING</a></div><div class="ttdeci">@ VL_WARNING</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00026">vibrant_logs.h:26</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd">VL_SUCCESS</a></div><div class="ttdeci">@ VL_SUCCESS</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00018">vibrant_logs.h:18</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44acfccc9885eb9bc26bac52bfeac7f2871"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44acfccc9885eb9bc26bac52bfeac7f2871">VL_ERROR</a></div><div class="ttdeci">@ VL_ERROR</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00030">vibrant_logs.h:30</a></div></div>
+<div class="ttc" id="avibrant__logs_8h_html_a475d66700920956bc28bd93c12369c44ad8b926aa55cae5b3c99d71819ce4de6f"><div class="ttname"><a href="#a475d66700920956bc28bd93c12369c44ad8b926aa55cae5b3c99d71819ce4de6f">VL_DEBUG</a></div><div class="ttdeci">@ VL_DEBUG</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00022">vibrant_logs.h:22</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -496,12 +500,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Obtains the current color scheme of VibrantLogs. </p>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
 
 </div>
 </div>
-<a id="ab1d03ec724754edae4bc78a5801753c5" name="ab1d03ec724754edae4bc78a5801753c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1d03ec724754edae4bc78a5801753c5">&#9670;&#160;</a></span>vl_delay_log()</h2>
+<a id="a3d9432f7fd8699928a2dad27c4378119" name="a3d9432f7fd8699928a2dad27c4378119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9432f7fd8699928a2dad27c4378119">&#9670;&#160;</a></span>vl_delay_log()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,7 +518,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span>, </td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -532,7 +536,49 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The max length of a VibrantLogs message is 256 characters.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="a8bae9d235282b2d9b76ddf0bd57acc05" name="a8bae9d235282b2d9b76ddf0bd57acc05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bae9d235282b2d9b76ddf0bd57acc05">&#9670;&#160;</a></span>vl_get_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int vl_get_str </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inserts a formatted string into a buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>The buffer to insert the formatted string into. </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the buffer in bytes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
 
 </div>
 </div>
@@ -558,13 +604,36 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>The buffer to insert the time into. </td></tr>
-    <tr><td class="paramname">size</td><td>The size of the buffer in bytes. This size value must be at least 12 bytes to view the full time string.</td></tr>
+    <tr><td class="paramname">size</td><td>The size of the buffer in bytes.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>For the buffer to hold the full time string, it should hold 12 bytes, including the null terminator.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="a9e2f27e0e7a53c27935b7cbe66d0e2fb" name="a9e2f27e0e7a53c27935b7cbe66d0e2fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2f27e0e7a53c27935b7cbe66d0e2fb">&#9670;&#160;</a></span>vl_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int vl_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initializes the VibrantLogs library.</p>
+<dl class="section note"><dt>Note</dt><dd>This must be called for VibrantLogs to work properly.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
 
 </div>
 </div>
@@ -595,7 +664,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The max length of a VibrantLogs message is 256 characters.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
 
 </div>
 </div>
@@ -617,7 +686,7 @@ Functions</h2></td></tr>
 <p>The initial color scheme of VibrantLogs is equal to VL_DEFAULT_COLORS.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a95bd8dd6360cb46f9ff5cc538eee4c93">VL_DEFAULT_COLORS</a> </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
 
 </div>
 </div>
@@ -639,12 +708,36 @@ Functions</h2></td></tr>
 <p>Setting the log level will prevent VibrantLogs from printing certain log messages based on their type. For example, setting the log level to VL_WARNING means VibrantLogs can only print out warning and error messages. Setting it to VL_ERROR means only error messages can be printed. By default, the log level is set to VL_INFO, which means any type of message can be printed.</p>
 <dl class="section note"><dt>Note</dt><dd>VL_SUCCESS and VL_DEBUG are exceptions to this rule. No matter the log level of VibrantLogs, these types of messages will always print. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
 
 </div>
 </div>
-<a id="a7c3bc1bdde8cfea404719232bc4874df" name="a7c3bc1bdde8cfea404719232bc4874df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c3bc1bdde8cfea404719232bc4874df">&#9670;&#160;</a></span>vl_update()</h2>
+<a id="a87369d1d15dd31ccb461e011c33dca89" name="a87369d1d15dd31ccb461e011c33dca89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87369d1d15dd31ccb461e011c33dca89">&#9670;&#160;</a></span>vl_set_output_destination()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int vl_set_output_destination </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the location of the output from VibrantLogs.</p>
+<p>The default output location is stdout.</p>
+<dl class="section note"><dt>Note</dt><dd>VibrantLogs does not manage the FILE* passed in here, so any operations other than writing to it will have to be performed by the user.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>When writing to a destination outside of the terminal, such as a text file, VibrantLogs will not be able to print in color.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="ae2d8bb8d6aa8619f61374ab674078cee" name="ae2d8bb8d6aa8619f61374ab674078cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d8bb8d6aa8619f61374ab674078cee">&#9670;&#160;</a></span>vl_update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -652,7 +745,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void vl_update </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>delta_time</em></span></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>delta_time</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -660,7 +753,7 @@ Functions</h2></td></tr>
 <p>Updates the VibrantLogs library.</p>
 <p>This function is used to update delayed logs. It must be called in the program's event loop. The function also needs the delta time value of the program. Delta time is the time between the last frame and the current frame. </p>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00172">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
 
 </div>
 </div>
