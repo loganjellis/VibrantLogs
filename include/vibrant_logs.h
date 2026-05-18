@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdio.h>
+
 /**
   Represents the type of a log statement.
 */
@@ -173,6 +175,33 @@ typedef struct vl_color_scheme
 #endif
 
 /**
+  Initializes the VibrantLogs library.
+
+  @note This must be called for VibrantLogs
+  to work properly.
+
+  @return 1 on success, 0 on failure.
+*/
+VL_API int vl_init(void);
+
+/**
+  Sets the location of the output from VibrantLogs.
+
+  The default output location is stdout.
+
+  @note VibrantLogs does not manage the FILE* passed
+  in here, so any operations other than writing
+  to it will have to be performed by the user.
+
+  @important When writing to a destination outside
+  of the terminal, such as a text file, VibrantLogs
+  will not be able to print in color.
+
+  @return 1 on success, 0 on failure.
+*/
+VL_API int vl_set_output_destination(FILE *dest);
+
+/**
   Sets the log level of VibrantLogs.
 
   Setting the log level will prevent VibrantLogs
@@ -207,13 +236,24 @@ VL_API vl_color_scheme *vl_curr_colors(void);
   Inserts the current time string into the given buffer.
 
   @param buffer The buffer to insert the time into.
-  @param size The size of the buffer in bytes. This size
-  value must be at least 12 bytes to view the full
-  time string.
+  @param size The size of the buffer in bytes.
+
+  @note For the buffer to hold the full time string, it should
+  hold 12 bytes, including the null terminator.
 
   @return 1 on success, 0 on failure.
 */
 VL_API int vl_get_time(char *buffer, size_t size);
+/**
+  Inserts a formatted string into a buffer.
+
+  @param buffer The buffer to insert the formatted
+  string into.
+  @param size The size of the buffer in bytes.
+
+  @return 1 on success, 0 on failure.
+*/
+VL_API int vl_get_str(char *buffer, size_t size, const char *fmt, ...);
 
 /**
   Prints a message.
@@ -232,7 +272,7 @@ VL_API int vl_log(vl_type log_type, const char *fmt, ...);
 
   @return 1 on success, 0 on failure.
 */
-VL_API int vl_delay_log(vl_type log_type, float seconds, const char *fmt, ...);
+VL_API int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...);
 /**
   Updates the VibrantLogs library.
 
@@ -242,4 +282,4 @@ VL_API int vl_delay_log(vl_type log_type, float seconds, const char *fmt, ...);
   of the program. Delta time is the time between
   the last frame and the current frame.
 */
-VL_API void vl_update(float delta_time);
+VL_API void vl_update(double delta_time);
