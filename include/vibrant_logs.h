@@ -197,6 +197,32 @@ typedef struct vl_timestamp
 } vl_timestamp;
 
 /**
+  Holds time data (hour, minute, and second),
+  as well as date information (year, month, and day).
+
+  Each time and date component is an unsigned integer.
+*/
+typedef struct vl_datetime
+{
+	/**
+	  The timestamp.
+	*/
+	vl_timestamp timestamp;
+	/**
+	  The year.
+	*/
+	unsigned int year;
+	/**
+	  The month.
+	*/
+	unsigned int month;
+	/**
+	  The day of the month.
+	*/
+	unsigned int day;
+} vl_datetime;
+
+/**
   Represents a custom config for VibrantLogs.
 
   When VibrantLogs logs messages, you can set
@@ -341,6 +367,11 @@ VL_API vl_timestamp vl_get_timestamp(void);
   on the given hours, minutes, and seconds.
 */
 VL_API vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours, unsigned int min, unsigned int sec);
+
+/**
+  Obtains a date-time based on the current time and date.
+*/
+VL_API vl_datetime vl_get_datetime(void);
 
 /**
   Prints a message.

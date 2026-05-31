@@ -245,7 +245,7 @@ int vl_get_date(char *buffer, size_t size)
 	time_info = localtime(&raw_time);
 
 	// copy string into buffer
-	snprintf(buffer, size, "[%d-%d-%d]", time_info -> tm_year + 1900, time_info -> tm_mon + 1, time_info -> tm_mday);
+	strftime(buffer, size, "[%Y-%m-%d]", time_info);
 
 	return 1;
 }
@@ -274,14 +274,13 @@ vl_timestamp vl_get_timestamp()
 	char hour[3], min[3], sec[3]; // sizes must 3 to include '\0'
 
 	// copy substrings into respective buffers
-	//memcpy(void *dest, const void *copy, size_t bytes);
-	memcpy(hour, time + 1, 2); // time + 1 points to beginning of 'HH'
+	memcpy(hour, time + 1, 2);
 	hour[2] = '\0';
 
-	memcpy(min, time + 4, 2); // time + 4 points to beginning of 'MM'
+	memcpy(min, time + 4, 2);
 	min[2] = '\0';
 
-	memcpy(sec, time + 7, 2); // time + 7 points to beginning of 'SS'
+	memcpy(sec, time + 7, 2);
 	sec[2] = '\0';
 
 	ts.hours = strtoul(hour, NULL, 10);
@@ -331,6 +330,37 @@ vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours
 	}
 
 	return future;
+}
+
+vl_datetime vl_get_datetime()
+{
+	vl_datetime dt = {0};
+
+	// obtain date string
+	char date[VL_DATE_STR_LEN];
+	vl_get_date(date, sizeof date);
+
+	// parse year, month, and day from date string: ('[YYYY-MM-DD]')
+	char year[5], month[3], day[3];
+
+	// copy substrings into respective buffers
+	memcpy(year, date + 1, 4);
+	year[4] = '\0';
+
+	memcpy(month, date + 6, 2);
+	month[2] = '\0';
+
+	memcpy(day, date + 9, 2);
+	day[2] = '\0';
+
+	dt.year = strtoul(year, NULL, 10);
+	dt.month = strtoul(month, NULL, 10);
+	dt.day = strtoul(day, NULL, 10);
+
+	// get timestamp
+	dt.timestamp = vl_get_timestamp();
+
+	return dt;
 }
 
 int vl_log(vl_type log_type, const char *fmt, ...)

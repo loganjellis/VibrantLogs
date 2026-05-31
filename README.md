@@ -62,13 +62,16 @@ int main(void)
 	vl_init();
 
 	// you can edit the color scheme of VibrantLogs:
-	vl_color_scheme mycolors = VL_DEFAULT_COLORS;
-	mycolors.time_color = (vl_color) { 150, 150, 255 };
-	mycolors.debug_prefix_color = (vl_color) { 200, 100, 100 };
-	mycolors.debug_color = (vl_color) { 225, 150, 150 };
+	vl_color_scheme *vl_colors = vl_curr_colors();
+	vl_colors -> time_color = (vl_color) { 150, 150, 255 };
+	vl_colors -> date_color = (vl_color) { 175, 175, 255 };
+	vl_colors -> debug_prefix_color = (vl_color) { 200, 100, 100 };
+	vl_colors -> debug_color = (vl_color) { 225, 150, 150 };
 
-	// remember to set the color scheme using vl_set_colors(color_scheme):
-	vl_set_colors(mycolors);
+    // update config to print both time and date
+	vl_config *vl_cfg = vl_curr_config();
+	vl_cfg -> print_time = true;
+	vl_cfg -> print_date = true;
 
 	// testing each log type:
 	vl_log(VL_INFO, "Info test.");
@@ -78,8 +81,7 @@ int main(void)
 	vl_log(VL_ERROR, "ERROR!");
 
 	return 0;
-}
-```
+}```
 
 ## Documentation and Information
 
