@@ -21,5 +21,11 @@ int main(void)
 	vl_log(VL_WARNING, "Warning.");
 	vl_log(VL_ERROR, "ERROR!");
 
+	vl_timestamp now = vl_get_timestamp();
+	vl_log(VL_INFO, "now : %hhu:%hhu:%hhu", now.hour, now.minute, now.second);
+
+	vl_timestamp future = vl_get_future_timestamp(&now, 10000, 1000, 1000000000);
+	vl_log(VL_INFO, "future time: %hhu:%hhu:%hhu", future.hour, future.minute, future.second);
+
 	return 0;
 }

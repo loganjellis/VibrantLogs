@@ -38,15 +38,15 @@ typedef struct vl_color
 	/**
 	  The red value.
 	*/
-	int r;
+	unsigned char r;
 	/**
 	  The green value.
 	*/
-	int g;
+	unsigned char g;
 	/**
 	  The blue value.
 	*/
-	int b;
+	unsigned char b;
 } vl_color;
 
 /**
@@ -164,6 +164,27 @@ typedef struct vl_color_scheme
 		.error_color = VL_RED \
 	};
 
+/**
+  Holds time data (hour, minute, and second).
+
+  Each time component is an unsigned integer.
+*/
+typedef struct vl_timestamp
+{
+	/**
+	  The time's hour.
+	*/
+	unsigned int hour;
+	/**
+	  The time's minute.
+	*/
+	unsigned int minute;
+	/**
+	  The time's second.
+	*/
+	unsigned int second;
+} vl_timestamp;
+
 #ifdef _WIN32
 	#ifdef VL_EXPORTS
 		#define VL_API __declspec(dllexport)
@@ -254,6 +275,16 @@ VL_API int vl_get_time(char *buffer, size_t size);
   @return 1 on success, 0 on failure.
 */
 VL_API int vl_get_str(char *buffer, size_t size, const char *fmt, ...);
+
+/**
+  Obtains a timestamp based on the current time.
+*/
+VL_API vl_timestamp vl_get_timestamp(void);
+/**
+  Obtains a new timestamp in the future based
+  on the given hours, minutes, and seconds.
+*/
+VL_API vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours, unsigned int min, unsigned int sec);
 
 /**
   Prints a message.

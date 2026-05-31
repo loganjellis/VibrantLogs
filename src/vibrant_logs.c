@@ -204,6 +204,77 @@ int vl_get_str(char *buffer, size_t size, const char *fmt, ...)
 	return 1;
 }
 
+vl_timestamp vl_get_timestamp()
+{
+	vl_timestamp ts = {0};
+
+	// obtain time string
+	char time[12];
+	vl_get_time(time, sizeof time);
+
+	// parse hour, min, and sec from time string: ('[HH:MM:SS]')
+	char hour[3], min[3], sec[3]; // sizes must 3 to include '\0'
+
+	// copy substrings into respective buffers
+	//memcpy(void *dest, const void *copy, size_t bytes);
+	memcpy(hour, time + 1, 2); // time + 1 points to beginning of 'HH'
+	hour[2] = '\0';
+
+	memcpy(min, time + 4, 2); // time + 4 points to beginning of 'MM'
+	min[2] = '\0';
+
+	memcpy(sec, time + 7, 2); // time + 7 points to beginning of 'SS'
+	sec[2] = '\0';
+
+	ts.hour = strtoul(hour, NULL, 10);
+	ts.minute = strtoul(min, NULL, 10);
+	ts.second = strtoul(sec, NULL, 10);
+
+	return ts;
+}
+// helper function for going to next complete time (either next hour or next minute, or both)
+static void vl_increment_timestamp(vl_timestamp *ts)
+{
+	ts -> minute -= 60;
+	ts -> hour += 1;
+	if(ts -> hour > 24)
+		ts -> hour -= 24;
+}
+vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours, unsigned int min, unsigned int sec)
+{
+	vl_timestamp future = *now;
+
+	// add hours, min, and sec to now
+
+	// first add hours to now.hour
+	future.hour += hours;
+	// then, as long as now.hour exceeds 24, subtract 24 to loop back
+	while(future.hour > 24)
+		future.hour -= 24;
+
+	// now add minutes
+	future.minute += min;
+	/* then, as long as now.minute exceeds 60, subtract 60 to loop back,
+	and also increment now.hour (looping hour back as needed) */
+	while(future.minute > 60)
+		vl_increment_timestamp(&future);
+
+	// now add seconds
+	future.second += sec;
+	/* then, as long as now.second exceeds 60, subtract 60 to loop back,
+	and also increment now.minute (looping back min as needed, and
+	also checking for a new hour reached if now.minute reaches 60). */
+	while(future.second > 60)
+	{
+		future.second -= 60;
+		future.minute += 1;
+		if(future.minute > 60)
+			vl_increment_timestamp(&future);
+	}
+
+	return future;
+}
+
 int vl_log(vl_type log_type, const char *fmt, ...)
 {
 	// check for null message:
