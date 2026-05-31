@@ -17,8 +17,10 @@
 #define VL_MAX_MSG_LEN 256
 // the max number of delayed log messages
 #define VL_MAX_DELAY_MSGS 64
-// enough chars to fit the time string in VibrantLogs
-#define VL_TIME_STR_LEN 12
+// enough chars to fit the time string in VibrantLogs ('[HH:MM:SS]') (includes null terminator)
+#define VL_TIME_STR_LEN 11
+// enough chars to fit the date string in VibrantLogs ('[YYYY-MM-DD]') (includes null terminator)
+#define VL_DATE_STR_LEN 13
 
 typedef struct vl_delayed_msg
 {
@@ -37,8 +39,9 @@ static size_t delayed_msg_count = 0;
 static bool vl_is_init = false;
 static FILE *output_dest = NULL;
 static vl_type log_level = VL_INFO;
-static vl_color_scheme vl_colors = VL_DEFAULT_COLORS;
+static vl_color_scheme colors = VL_DEFAULT_COLORS;
 static bool use_colors = true; // whether or not messages should be printed in color (only applies to stdout/stderr)
+static vl_config config = {0};
 
 // macro for quickly obtaining the RGB value of a color (used when printing to shorten lines)
 #define vl_rgb(color) color.r, color.g, color.b
@@ -66,25 +69,47 @@ static void vl_print(vl_type type, const char *msg)
 	if(!output_dest)
 	{
 		// no check for 'use_colors' here since printf uses stdout by default
-		printf("\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(vl_colors.error_prefix_color), vl_rgb(vl_colors.error_color), "Output destination is NULL, make sure you call vl_init()!");
+		printf("\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(colors.error_prefix_color), vl_rgb(colors.error_color), "Output destination is NULL, make sure you call vl_init()!");
 		return;
 	}
 
-	// obtain the time string
-	char time_buf[VL_TIME_STR_LEN];
-	vl_get_time(time_buf, sizeof time_buf);
+	// if 'print_time' is true in the config, obtain and format time string:
+	if(config.print_time)
+	{
+		// obtain the time string
+		char time_buf[VL_TIME_STR_LEN];
+		vl_get_time(time_buf, sizeof time_buf);
 
-	// obtain formatted time string
-	char time_str[33];
-	if(use_colors)
-		vl_get_str(time_str, sizeof time_str, "\x1b[38;2;%d;%d;%dm%s ", vl_rgb(vl_colors.time_color), time_buf);
-	else
-		vl_get_str(time_str, sizeof time_str, "%s ", time_buf);
+		// obtain formatted time string
+		char time_str[32]; // time string (11 chars) + format string (21 chars) = 32
+		if(use_colors)
+			vl_get_str(time_str, sizeof time_str, "\x1b[38;2;%d;%d;%dm%s ", vl_rgb(colors.time_color), time_buf);
+		else
+			vl_get_str(time_str, sizeof time_str, "%s ", time_buf);
 
-	// write time string to output
-	fwrite(time_str, sizeof(char), strlen(time_str), output_dest);
+		// write time string to output
+		fwrite(time_str, sizeof(char), strlen(time_str), output_dest);
+	}
 
-	// buffer holding final log message (use VL_MAX_MSG_LEN + 55 to fit color codes, prefixes, and null terminator)
+	// if 'print_date' is true in the config, obtain and format date string:
+	if(config.print_date)
+	{
+		// obtain the date string
+		char date_buf[VL_DATE_STR_LEN];
+		vl_get_date(date_buf, sizeof date_buf);
+
+		// obtain formatted date string
+		char date_str[34]; // date string (13 chars) + format string (21 chars) = 34
+		if(use_colors)
+			vl_get_str(date_str, sizeof date_str, "\x1b[38;2;%d;%d;%dm%s ", vl_rgb(colors.date_color), date_buf);
+		else
+			vl_get_str(date_str, sizeof date_str, "%s ", date_buf);
+
+		// write date string to output
+		fwrite(date_str, sizeof(char), strlen(date_str), output_dest);
+	}
+
+	// buffer holding final log message (use VL_MAX_MSG_LEN + 56 to fit color codes, prefixes, and null terminator)
 	char final_str[VL_MAX_MSG_LEN + 56];
 
 	switch(type)
@@ -94,19 +119,19 @@ static void vl_print(vl_type type, const char *msg)
 			if(log_level == VL_WARNING || log_level == VL_ERROR)
 				return;
 			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ INFO ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(vl_colors.info_prefix_color), vl_rgb(vl_colors.info_color), msg);
+				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ INFO ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(colors.info_prefix_color), vl_rgb(colors.info_color), msg);
 			else
 				vl_get_str(final_str, sizeof final_str, "[ INFO ] %s\n", msg);
 			break;
 		case VL_SUCCESS:
 			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ SUCCESS ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(vl_colors.success_prefix_color), vl_rgb(vl_colors.success_color), msg);
+				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ SUCCESS ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(colors.success_prefix_color), vl_rgb(colors.success_color), msg);
 			else
 				vl_get_str(final_str, sizeof final_str, "[ SUCCESS ] %s\n", msg);
 			break;
 		case VL_DEBUG:
 			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ DEBUG ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(vl_colors.debug_prefix_color), vl_rgb(vl_colors.debug_color), msg);
+				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ DEBUG ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(colors.debug_prefix_color), vl_rgb(colors.debug_color), msg);
 			else
 				vl_get_str(final_str, sizeof final_str, "[ DEBUG ] %s\n", msg);
 			break;
@@ -115,14 +140,14 @@ static void vl_print(vl_type type, const char *msg)
 			if(log_level == VL_ERROR)
 				return;
 			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ WARNING ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(vl_colors.warning_prefix_color), vl_rgb(vl_colors.warning_color), msg);
+				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ WARNING ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(colors.warning_prefix_color), vl_rgb(colors.warning_color), msg);
 			else
 				vl_get_str(final_str, sizeof final_str, "[ WARNING ] %s\n", msg);
 			break;
 		case VL_ERROR:
 		default:
 			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(vl_colors.error_prefix_color), vl_rgb(vl_colors.error_color), msg);
+				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(colors.error_prefix_color), vl_rgb(colors.error_color), msg);
 			else
 				vl_get_str(final_str, sizeof final_str, "[ ERROR ] %s\n", msg);
 			break;
@@ -138,6 +163,10 @@ int vl_init()
 		return 0;
 
 	output_dest = stdout;
+
+	// setup default config
+	config.print_time = true;
+	config.print_date = false;
 
 	vl_is_init = true;
 
@@ -164,11 +193,20 @@ void vl_set_log_level(vl_type level)
 
 void vl_set_colors(vl_color_scheme color_scheme)
 {
-	vl_colors = color_scheme;
+	colors = color_scheme;
 }
 vl_color_scheme *vl_curr_colors()
 {
-	return &vl_colors;
+	return &colors;
+}
+
+void vl_use_config(vl_config cfg)
+{
+	config = cfg;
+}
+vl_config *vl_curr_config()
+{
+	return &config;
 }
 
 int vl_get_time(char *buffer, size_t size)
@@ -191,6 +229,26 @@ int vl_get_time(char *buffer, size_t size)
 
 	return 1;
 }
+int vl_get_date(char *buffer, size_t size)
+{
+	if(!buffer)
+		return 0;
+
+	// date info:
+	time_t raw_time = 0;
+	struct tm *time_info;
+
+	// obtain curr time
+	time(&raw_time);
+
+	// convert to local time
+	time_info = localtime(&raw_time);
+
+	// copy string into buffer
+	snprintf(buffer, size, "[%d-%d-%d]", time_info -> tm_year + 1900, time_info -> tm_mon + 1, time_info -> tm_mday);
+
+	return 1;
+}
 int vl_get_str(char *buffer, size_t size, const char *fmt, ...)
 {
 	if(!buffer)
@@ -209,7 +267,7 @@ vl_timestamp vl_get_timestamp()
 	vl_timestamp ts = {0};
 
 	// obtain time string
-	char time[12];
+	char time[VL_TIME_STR_LEN];
 	vl_get_time(time, sizeof time);
 
 	// parse hour, min, and sec from time string: ('[HH:MM:SS]')
@@ -226,19 +284,19 @@ vl_timestamp vl_get_timestamp()
 	memcpy(sec, time + 7, 2); // time + 7 points to beginning of 'SS'
 	sec[2] = '\0';
 
-	ts.hour = strtoul(hour, NULL, 10);
-	ts.minute = strtoul(min, NULL, 10);
-	ts.second = strtoul(sec, NULL, 10);
+	ts.hours = strtoul(hour, NULL, 10);
+	ts.minutes = strtoul(min, NULL, 10);
+	ts.seconds = strtoul(sec, NULL, 10);
 
 	return ts;
 }
 // helper function for going to next complete time (either next hour or next minute, or both)
 static void vl_increment_timestamp(vl_timestamp *ts)
 {
-	ts -> minute -= 60;
-	ts -> hour += 1;
-	if(ts -> hour > 24)
-		ts -> hour -= 24;
+	ts -> minutes -= 60;
+	ts -> hours += 1;
+	if(ts -> hours > 24)
+		ts -> hours -= 24;
 }
 vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours, unsigned int min, unsigned int sec)
 {
@@ -247,28 +305,28 @@ vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours
 	// add hours, min, and sec to now
 
 	// first add hours to now.hour
-	future.hour += hours;
+	future.hours += hours;
 	// then, as long as now.hour exceeds 24, subtract 24 to loop back
-	while(future.hour > 24)
-		future.hour -= 24;
+	while(future.hours > 24)
+		future.hours -= 24;
 
 	// now add minutes
-	future.minute += min;
+	future.minutes += min;
 	/* then, as long as now.minute exceeds 60, subtract 60 to loop back,
 	and also increment now.hour (looping hour back as needed) */
-	while(future.minute > 60)
+	while(future.minutes > 60)
 		vl_increment_timestamp(&future);
 
 	// now add seconds
-	future.second += sec;
+	future.seconds += sec;
 	/* then, as long as now.second exceeds 60, subtract 60 to loop back,
 	and also increment now.minute (looping back min as needed, and
 	also checking for a new hour reached if now.minute reaches 60). */
-	while(future.second > 60)
+	while(future.seconds > 60)
 	{
-		future.second -= 60;
-		future.minute += 1;
-		if(future.minute > 60)
+		future.seconds -= 60;
+		future.minutes += 1;
+		if(future.minutes > 60)
 			vl_increment_timestamp(&future);
 	}
 

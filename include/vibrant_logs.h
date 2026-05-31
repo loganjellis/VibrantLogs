@@ -102,9 +102,19 @@ typedef struct vl_color
 typedef struct vl_color_scheme
 {
 	/**
-	  The color of the time.
+	  The color of the time (if printed).
+
+	  @see vl_config.
+	  @see vl_use_config(vl_config).
 	*/
 	vl_color time_color;
+	/**
+	  The color of the date (if printed).
+
+	  @see vl_config.
+	  @see vl_use_config(vl_config).
+	*/
+	vl_color date_color;
 	/**
 	  The color of the prefix of info messages.
 	*/
@@ -152,6 +162,7 @@ typedef struct vl_color_scheme
 */
 #define VL_DEFAULT_COLORS (vl_color_scheme) { \
 		.time_color = VL_WHITE, \
+		.date_color = VL_WHITE, \
 		.info_prefix_color = VL_LIGHT_BLUE, \
 		.info_color = VL_BLUE, \
 		.success_prefix_color = VL_LIGHT_GREEN, \
@@ -174,16 +185,38 @@ typedef struct vl_timestamp
 	/**
 	  The time's hour.
 	*/
-	unsigned int hour;
+	unsigned int hours;
 	/**
 	  The time's minute.
 	*/
-	unsigned int minute;
+	unsigned int minutes;
 	/**
 	  The time's second.
 	*/
-	unsigned int second;
+	unsigned int seconds;
 } vl_timestamp;
+
+/**
+  Represents a custom config for VibrantLogs.
+
+  When VibrantLogs logs messages, you can set
+  how VibrantLogs prints the time and date.
+*/
+typedef struct vl_config
+{
+	/**
+	  Indicates whether or not VibrantLogs will
+	  print the current time. This is true by default.
+	*/
+	bool print_time;
+	/**
+	  Indicates whether or not VibrantLogs will
+	  print the current date. This includes
+	  the day, month, and year. This is false
+	  by default.
+	*/
+	bool print_date;
+} vl_config;
 
 #ifdef _WIN32
 	#ifdef VL_EXPORTS
@@ -254,17 +287,40 @@ VL_API void vl_set_colors(vl_color_scheme color_scheme);
 VL_API vl_color_scheme *vl_curr_colors(void);
 
 /**
+  Sets the config of VibrantLogs.
+
+  @see vl_config.
+*/
+VL_API void vl_use_config(vl_config cfg);
+/**
+  Obtains the current config of VibrantLogs.
+*/
+VL_API vl_config *vl_curr_config(void);
+
+/**
   Inserts the current time string into the given buffer.
 
   @param buffer The buffer to insert the time into.
   @param size The size of the buffer in bytes.
 
   @note For the buffer to hold the full time string, it should
-  hold 12 bytes, including the null terminator.
+  hold 11 bytes, including the null terminator.
 
   @return 1 on success, 0 on failure.
 */
 VL_API int vl_get_time(char *buffer, size_t size);
+/**
+  Inserts the current date string into the given buffer.
+
+  @param buffer The buffer to insert the date into.
+  @param size The size of the buffer in bytes.
+
+  @note For the buffer to hold the full date string, it should
+  hold 13 bytes, including the null terminator.
+
+  @return 1 on success, 0 on failure.
+*/
+VL_API int vl_get_date(char *buffer, size_t size);
 /**
   Inserts a formatted string into a buffer.
 
