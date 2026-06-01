@@ -185,15 +185,15 @@ typedef struct vl_timestamp
 	/**
 	  The time's hour.
 	*/
-	unsigned int hours;
+	unsigned int hour;
 	/**
 	  The time's minute.
 	*/
-	unsigned int minutes;
+	unsigned int minute;
 	/**
 	  The time's second.
 	*/
-	unsigned int seconds;
+	unsigned int second;
 } vl_timestamp;
 
 /**
@@ -220,6 +220,11 @@ typedef struct vl_datetime
 	  The day of the month.
 	*/
 	unsigned int day;
+	/**
+	  Whether or not the year of this date-time
+	  is a leap year.
+	*/
+	bool is_leap_year;
 } vl_datetime;
 
 /**
@@ -372,6 +377,11 @@ VL_API vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned in
   Obtains a date-time based on the current time and date.
 */
 VL_API vl_datetime vl_get_datetime(void);
+/**
+  Obtains a new date-time in the future based on
+  the given hours, minutes, and seconds.
+*/
+VL_API vl_datetime vl_get_future_datetime(const vl_datetime *now, unsigned int years, unsigned int months, unsigned int days, unsigned int hours, unsigned int min, unsigned int sec);
 
 /**
   Prints a message.

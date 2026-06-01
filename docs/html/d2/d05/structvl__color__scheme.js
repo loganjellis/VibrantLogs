@@ -1,5 +1,6 @@
 var structvl__color__scheme =
 [
+    [ "date_color", "d2/d05/structvl__color__scheme.html#a47735549b23d6a031707e29d48aedefb", null ],
     [ "debug_color", "d2/d05/structvl__color__scheme.html#ae87a07f1d82c8a262814fd8c72d6b983", null ],
     [ "debug_prefix_color", "d2/d05/structvl__color__scheme.html#a7371badd0443c11403f546d171cbb39b", null ],
     [ "error_color", "d2/d05/structvl__color__scheme.html#ad6ea49c7c08382bf533194ae9550e2dc", null ],

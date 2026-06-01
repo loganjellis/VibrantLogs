@@ -2,6 +2,9 @@ var vibrant__logs_8h =
 [
     [ "vl_color", "d3/d2b/structvl__color.html", "d3/d2b/structvl__color" ],
     [ "vl_color_scheme", "d2/d05/structvl__color__scheme.html", "d2/d05/structvl__color__scheme" ],
+    [ "vl_timestamp", "d9/d90/structvl__timestamp.html", "d9/d90/structvl__timestamp" ],
+    [ "vl_datetime", "dc/d41/structvl__datetime.html", "dc/d41/structvl__datetime" ],
+    [ "vl_config", "db/db9/structvl__config.html", "db/db9/structvl__config" ],
     [ "VL_API", "da/d25/vibrant__logs_8h.html#ab7587fd8373e10d56375c7829aefbe95", null ],
     [ "VL_BLUE", "da/d25/vibrant__logs_8h.html#a3971e2ef46a64ac730a11e931a737717", null ],
     [ "VL_DEFAULT_COLORS", "da/d25/vibrant__logs_8h.html#a95bd8dd6360cb46f9ff5cc538eee4c93", null ],
@@ -17,6 +20,9 @@ var vibrant__logs_8h =
     [ "VL_YELLOW", "da/d25/vibrant__logs_8h.html#a8fd4fbb3180e269b486cf3101ca6df14", null ],
     [ "vl_color", "da/d25/vibrant__logs_8h.html#aaf4c374db301270b4936ac382f8aacb5", null ],
     [ "vl_color_scheme", "da/d25/vibrant__logs_8h.html#a6d7018cbc4b3e2e09054f26c38d2b681", null ],
+    [ "vl_config", "da/d25/vibrant__logs_8h.html#aba29e94f9230ee3e92f5201ca3703597", null ],
+    [ "vl_datetime", "da/d25/vibrant__logs_8h.html#adda4bbfd233374e28638830d24421ae7", null ],
+    [ "vl_timestamp", "da/d25/vibrant__logs_8h.html#a9bdf59168b1912437df119b356ecb057", null ],
     [ "vl_type", "da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44", [
       [ "VL_INFO", "da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44a078d6f64cf94ce7f26fda3aab81f8cdc", null ],
       [ "VL_SUCCESS", "da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44a8f92d166e5d8b1bbb11f9799094a60fd", null ],
@@ -25,13 +31,20 @@ var vibrant__logs_8h =
       [ "VL_ERROR", "da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44acfccc9885eb9bc26bac52bfeac7f2871", null ]
     ] ],
     [ "vl_curr_colors", "da/d25/vibrant__logs_8h.html#a77b05543c1c5fb53ec038e30decd83c0", null ],
+    [ "vl_curr_config", "da/d25/vibrant__logs_8h.html#aa78d2385efb9057ebc1e701769eb657c", null ],
     [ "vl_delay_log", "da/d25/vibrant__logs_8h.html#a3d9432f7fd8699928a2dad27c4378119", null ],
+    [ "vl_get_date", "da/d25/vibrant__logs_8h.html#a661a95e972bb141ec496bcd8fd32e9ab", null ],
+    [ "vl_get_datetime", "da/d25/vibrant__logs_8h.html#a762169f56b70d1771dc7f643ccce25c7", null ],
+    [ "vl_get_future_datetime", "da/d25/vibrant__logs_8h.html#a8311f64bbc3026d9de695c7b62834433", null ],
+    [ "vl_get_future_timestamp", "da/d25/vibrant__logs_8h.html#abafb4b3bf346bc1707d3d22c11abdc81", null ],
     [ "vl_get_str", "da/d25/vibrant__logs_8h.html#a8bae9d235282b2d9b76ddf0bd57acc05", null ],
     [ "vl_get_time", "da/d25/vibrant__logs_8h.html#a2f1299f9d2bc59c87446b1bb210b096f", null ],
+    [ "vl_get_timestamp", "da/d25/vibrant__logs_8h.html#a989a685289a1d90118997d78d6b64e6e", null ],
     [ "vl_init", "da/d25/vibrant__logs_8h.html#a9e2f27e0e7a53c27935b7cbe66d0e2fb", null ],
     [ "vl_log", "da/d25/vibrant__logs_8h.html#aed16ae1b5919bc99745d1ec9f73dfd11", null ],
     [ "vl_set_colors", "da/d25/vibrant__logs_8h.html#af6a8f755c0e8a03fffe522fb8b9fa43f", null ],
     [ "vl_set_log_level", "da/d25/vibrant__logs_8h.html#ac683bd7ea5a24e00769db7d82dfc5372", null ],
     [ "vl_set_output_destination", "da/d25/vibrant__logs_8h.html#a87369d1d15dd31ccb461e011c33dca89", null ],
-    [ "vl_update", "da/d25/vibrant__logs_8h.html#ae2d8bb8d6aa8619f61374ab674078cee", null ]
+    [ "vl_update", "da/d25/vibrant__logs_8h.html#ae2d8bb8d6aa8619f61374ab674078cee", null ],
+    [ "vl_use_config", "da/d25/vibrant__logs_8h.html#a9020baa18fecdcb9593513d60d9dd48b", null ]
 ];

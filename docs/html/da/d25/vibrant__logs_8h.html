@@ -100,6 +100,9 @@ $(function(){initNavTree('da/d25/vibrant__logs_8h.html','../../',''); });
 Classes</h2></td></tr>
 <tr class="memitem:vl_5Fcolor" id="r_vl_5Fcolor"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d2b/structvl__color.html">vl_color</a></td></tr>
 <tr class="memitem:vl_5Fcolor_5Fscheme" id="r_vl_5Fcolor_5Fscheme"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a></td></tr>
+<tr class="memitem:vl_5Ftimestamp" id="r_vl_5Ftimestamp"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a></td></tr>
+<tr class="memitem:vl_5Fdatetime" id="r_vl_5Fdatetime"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d41/structvl__datetime.html">vl_datetime</a></td></tr>
+<tr class="memitem:vl_5Fconfig" id="r_vl_5Fconfig"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db9/structvl__config.html">vl_config</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -121,6 +124,9 @@ Macros</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:aaf4c374db301270b4936ac382f8aacb5" id="r_aaf4c374db301270b4936ac382f8aacb5"><td class="memItemLeft" align="right" valign="top">typedef struct vl_color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf4c374db301270b4936ac382f8aacb5">vl_color</a></td></tr>
 <tr class="memitem:a6d7018cbc4b3e2e09054f26c38d2b681" id="r_a6d7018cbc4b3e2e09054f26c38d2b681"><td class="memItemLeft" align="right" valign="top">typedef struct vl_color_scheme&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d7018cbc4b3e2e09054f26c38d2b681">vl_color_scheme</a></td></tr>
+<tr class="memitem:a9bdf59168b1912437df119b356ecb057" id="r_a9bdf59168b1912437df119b356ecb057"><td class="memItemLeft" align="right" valign="top">typedef struct vl_timestamp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bdf59168b1912437df119b356ecb057">vl_timestamp</a></td></tr>
+<tr class="memitem:adda4bbfd233374e28638830d24421ae7" id="r_adda4bbfd233374e28638830d24421ae7"><td class="memItemLeft" align="right" valign="top">typedef struct vl_datetime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adda4bbfd233374e28638830d24421ae7">vl_datetime</a></td></tr>
+<tr class="memitem:aba29e94f9230ee3e92f5201ca3703597" id="r_aba29e94f9230ee3e92f5201ca3703597"><td class="memItemLeft" align="right" valign="top">typedef struct vl_config&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba29e94f9230ee3e92f5201ca3703597">vl_config</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -141,8 +147,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ac683bd7ea5a24e00769db7d82dfc5372" id="r_ac683bd7ea5a24e00769db7d82dfc5372"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac683bd7ea5a24e00769db7d82dfc5372">vl_set_log_level</a> (<a class="el" href="#a475d66700920956bc28bd93c12369c44">vl_type</a> level)</td></tr>
 <tr class="memitem:af6a8f755c0e8a03fffe522fb8b9fa43f" id="r_af6a8f755c0e8a03fffe522fb8b9fa43f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6a8f755c0e8a03fffe522fb8b9fa43f">vl_set_colors</a> (<a class="el" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a> color_scheme)</td></tr>
 <tr class="memitem:a77b05543c1c5fb53ec038e30decd83c0" id="r_a77b05543c1c5fb53ec038e30decd83c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77b05543c1c5fb53ec038e30decd83c0">vl_curr_colors</a> (void)</td></tr>
+<tr class="memitem:a9020baa18fecdcb9593513d60d9dd48b" id="r_a9020baa18fecdcb9593513d60d9dd48b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9020baa18fecdcb9593513d60d9dd48b">vl_use_config</a> (<a class="el" href="../../db/db9/structvl__config.html">vl_config</a> cfg)</td></tr>
+<tr class="memitem:aa78d2385efb9057ebc1e701769eb657c" id="r_aa78d2385efb9057ebc1e701769eb657c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../db/db9/structvl__config.html">vl_config</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa78d2385efb9057ebc1e701769eb657c">vl_curr_config</a> (void)</td></tr>
 <tr class="memitem:a2f1299f9d2bc59c87446b1bb210b096f" id="r_a2f1299f9d2bc59c87446b1bb210b096f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f1299f9d2bc59c87446b1bb210b096f">vl_get_time</a> (char *buffer, size_t size)</td></tr>
+<tr class="memitem:a661a95e972bb141ec496bcd8fd32e9ab" id="r_a661a95e972bb141ec496bcd8fd32e9ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a661a95e972bb141ec496bcd8fd32e9ab">vl_get_date</a> (char *buffer, size_t size)</td></tr>
 <tr class="memitem:a8bae9d235282b2d9b76ddf0bd57acc05" id="r_a8bae9d235282b2d9b76ddf0bd57acc05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bae9d235282b2d9b76ddf0bd57acc05">vl_get_str</a> (char *buffer, size_t size, const char *fmt,...)</td></tr>
+<tr class="memitem:a989a685289a1d90118997d78d6b64e6e" id="r_a989a685289a1d90118997d78d6b64e6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a989a685289a1d90118997d78d6b64e6e">vl_get_timestamp</a> (void)</td></tr>
+<tr class="memitem:abafb4b3bf346bc1707d3d22c11abdc81" id="r_abafb4b3bf346bc1707d3d22c11abdc81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abafb4b3bf346bc1707d3d22c11abdc81">vl_get_future_timestamp</a> (const <a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a> *now, unsigned int hours, unsigned int min, unsigned int sec)</td></tr>
+<tr class="memitem:a762169f56b70d1771dc7f643ccce25c7" id="r_a762169f56b70d1771dc7f643ccce25c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../dc/d41/structvl__datetime.html">vl_datetime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a762169f56b70d1771dc7f643ccce25c7">vl_get_datetime</a> (void)</td></tr>
+<tr class="memitem:a8311f64bbc3026d9de695c7b62834433" id="r_a8311f64bbc3026d9de695c7b62834433"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../dc/d41/structvl__datetime.html">vl_datetime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8311f64bbc3026d9de695c7b62834433">vl_get_future_datetime</a> (const <a class="el" href="../../dc/d41/structvl__datetime.html">vl_datetime</a> *now, unsigned int years, unsigned int months, unsigned int days, unsigned int hours, unsigned int min, unsigned int sec)</td></tr>
 <tr class="memitem:aed16ae1b5919bc99745d1ec9f73dfd11" id="r_aed16ae1b5919bc99745d1ec9f73dfd11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed16ae1b5919bc99745d1ec9f73dfd11">vl_log</a> (<a class="el" href="#a475d66700920956bc28bd93c12369c44">vl_type</a> log_type, const char *fmt,...)</td></tr>
 <tr class="memitem:a3d9432f7fd8699928a2dad27c4378119" id="r_a3d9432f7fd8699928a2dad27c4378119"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d9432f7fd8699928a2dad27c4378119">vl_delay_log</a> (<a class="el" href="#a475d66700920956bc28bd93c12369c44">vl_type</a> log_type, double seconds, const char *fmt,...)</td></tr>
 <tr class="memitem:ae2d8bb8d6aa8619f61374ab674078cee" id="r_ae2d8bb8d6aa8619f61374ab674078cee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2d8bb8d6aa8619f61374ab674078cee">vl_update</a> (double delta_time)</td></tr>
@@ -160,9 +173,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">174</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">259</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#a77b05543c1c5fb53ec038e30decd83c0">vl_curr_colors()</a>, <a class="el" href="#a3d9432f7fd8699928a2dad27c4378119">vl_delay_log()</a>, <a class="el" href="#a8bae9d235282b2d9b76ddf0bd57acc05">vl_get_str()</a>, <a class="el" href="#a2f1299f9d2bc59c87446b1bb210b096f">vl_get_time()</a>, <a class="el" href="#a9e2f27e0e7a53c27935b7cbe66d0e2fb">vl_init()</a>, <a class="el" href="#aed16ae1b5919bc99745d1ec9f73dfd11">vl_log()</a>, <a class="el" href="#af6a8f755c0e8a03fffe522fb8b9fa43f">vl_set_colors()</a>, <a class="el" href="#ac683bd7ea5a24e00769db7d82dfc5372">vl_set_log_level()</a>, <a class="el" href="#a87369d1d15dd31ccb461e011c33dca89">vl_set_output_destination()</a>, and <a class="el" href="#ae2d8bb8d6aa8619f61374ab674078cee">vl_update()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#a77b05543c1c5fb53ec038e30decd83c0">vl_curr_colors()</a>, <a class="el" href="#aa78d2385efb9057ebc1e701769eb657c">vl_curr_config()</a>, <a class="el" href="#a3d9432f7fd8699928a2dad27c4378119">vl_delay_log()</a>, <a class="el" href="#a661a95e972bb141ec496bcd8fd32e9ab">vl_get_date()</a>, <a class="el" href="#a762169f56b70d1771dc7f643ccce25c7">vl_get_datetime()</a>, <a class="el" href="#a8311f64bbc3026d9de695c7b62834433">vl_get_future_datetime()</a>, <a class="el" href="#abafb4b3bf346bc1707d3d22c11abdc81">vl_get_future_timestamp()</a>, <a class="el" href="#a8bae9d235282b2d9b76ddf0bd57acc05">vl_get_str()</a>, <a class="el" href="#a2f1299f9d2bc59c87446b1bb210b096f">vl_get_time()</a>, <a class="el" href="#a989a685289a1d90118997d78d6b64e6e">vl_get_timestamp()</a>, <a class="el" href="#a9e2f27e0e7a53c27935b7cbe66d0e2fb">vl_init()</a>, <a class="el" href="#aed16ae1b5919bc99745d1ec9f73dfd11">vl_log()</a>, <a class="el" href="#af6a8f755c0e8a03fffe522fb8b9fa43f">vl_set_colors()</a>, <a class="el" href="#ac683bd7ea5a24e00769db7d82dfc5372">vl_set_log_level()</a>, <a class="el" href="#a87369d1d15dd31ccb461e011c33dca89">vl_set_output_destination()</a>, <a class="el" href="#ae2d8bb8d6aa8619f61374ab674078cee">vl_update()</a>, and <a class="el" href="#a9020baa18fecdcb9593513d60d9dd48b">vl_use_config()</a>.</p>
 
 </div>
 </div>
@@ -196,6 +209,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">        (<a class="code hl_struct" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a>) { \</div>
 <div class="line">        .time_color = <a class="code hl_define" href="#a0ffa3cb5f259b57e371c0b8bab674f08">VL_WHITE</a>, \</div>
+<div class="line">        .date_color = <a class="code hl_define" href="#a0ffa3cb5f259b57e371c0b8bab674f08">VL_WHITE</a>, \</div>
 <div class="line">        .info_prefix_color = <a class="code hl_define" href="#a4b54e23200949682389839948f18243d">VL_LIGHT_BLUE</a>, \</div>
 <div class="line">        .info_color = <a class="code hl_define" href="#a3971e2ef46a64ac730a11e931a737717">VL_BLUE</a>, \</div>
 <div class="line">        .success_prefix_color = <a class="code hl_define" href="#afb3d35002b7a8ae6d506d6305c4e52d8">VL_LIGHT_GREEN</a>, \</div>
@@ -221,20 +235,21 @@ Functions</h2></td></tr>
 <div class="ttc" id="avibrant__logs_8h_html_afb3d35002b7a8ae6d506d6305c4e52d8"><div class="ttname"><a href="#afb3d35002b7a8ae6d506d6305c4e52d8">VL_LIGHT_GREEN</a></div><div class="ttdeci">#define VL_LIGHT_GREEN</div><div class="ttdef"><b>Definition</b> <a href="../../da/d25/vibrant__logs_8h_source.html#l00067">vibrant_logs.h:67</a></div></div>
 </div><!-- fragment --><p>Obtains the default color scheme of VibrantLogs. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00153">153</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  153</span><span class="preprocessor">#define VL_DEFAULT_COLORS (vl_color_scheme) { \</span></div>
-<div class="line"><span class="lineno">  154</span><span class="preprocessor">        .time_color = VL_WHITE, \</span></div>
-<div class="line"><span class="lineno">  155</span><span class="preprocessor">        .info_prefix_color = VL_LIGHT_BLUE, \</span></div>
-<div class="line"><span class="lineno">  156</span><span class="preprocessor">        .info_color = VL_BLUE, \</span></div>
-<div class="line"><span class="lineno">  157</span><span class="preprocessor">        .success_prefix_color = VL_LIGHT_GREEN, \</span></div>
-<div class="line"><span class="lineno">  158</span><span class="preprocessor">        .success_color = VL_GREEN, \</span></div>
-<div class="line"><span class="lineno">  159</span><span class="preprocessor">        .debug_prefix_color = VL_LIGHT_ORANGE, \</span></div>
-<div class="line"><span class="lineno">  160</span><span class="preprocessor">        .debug_color = VL_ORANGE, \</span></div>
-<div class="line"><span class="lineno">  161</span><span class="preprocessor">        .warning_prefix_color = VL_LIGHT_YELLOW, \</span></div>
-<div class="line"><span class="lineno">  162</span><span class="preprocessor">        .warning_color = VL_YELLOW, \</span></div>
-<div class="line"><span class="lineno">  163</span><span class="preprocessor">        .error_prefix_color = VL_LIGHT_RED, \</span></div>
-<div class="line"><span class="lineno">  164</span><span class="preprocessor">        .error_color = VL_RED \</span></div>
-<div class="line"><span class="lineno">  165</span><span class="preprocessor">    };</span></div>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00163">163</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  163</span><span class="preprocessor">#define VL_DEFAULT_COLORS (vl_color_scheme) { \</span></div>
+<div class="line"><span class="lineno">  164</span><span class="preprocessor">        .time_color = VL_WHITE, \</span></div>
+<div class="line"><span class="lineno">  165</span><span class="preprocessor">        .date_color = VL_WHITE, \</span></div>
+<div class="line"><span class="lineno">  166</span><span class="preprocessor">        .info_prefix_color = VL_LIGHT_BLUE, \</span></div>
+<div class="line"><span class="lineno">  167</span><span class="preprocessor">        .info_color = VL_BLUE, \</span></div>
+<div class="line"><span class="lineno">  168</span><span class="preprocessor">        .success_prefix_color = VL_LIGHT_GREEN, \</span></div>
+<div class="line"><span class="lineno">  169</span><span class="preprocessor">        .success_color = VL_GREEN, \</span></div>
+<div class="line"><span class="lineno">  170</span><span class="preprocessor">        .debug_prefix_color = VL_LIGHT_ORANGE, \</span></div>
+<div class="line"><span class="lineno">  171</span><span class="preprocessor">        .debug_color = VL_ORANGE, \</span></div>
+<div class="line"><span class="lineno">  172</span><span class="preprocessor">        .warning_prefix_color = VL_LIGHT_YELLOW, \</span></div>
+<div class="line"><span class="lineno">  173</span><span class="preprocessor">        .warning_color = VL_YELLOW, \</span></div>
+<div class="line"><span class="lineno">  174</span><span class="preprocessor">        .error_prefix_color = VL_LIGHT_RED, \</span></div>
+<div class="line"><span class="lineno">  175</span><span class="preprocessor">        .error_color = VL_RED \</span></div>
+<div class="line"><span class="lineno">  176</span><span class="preprocessor">    };</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -440,6 +455,54 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aba29e94f9230ee3e92f5201ca3703597" name="aba29e94f9230ee3e92f5201ca3703597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba29e94f9230ee3e92f5201ca3703597">&#9670;&#160;</a></span>vl_config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct vl_config vl_config</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Represents a custom config for VibrantLogs.</p>
+<p>When VibrantLogs logs messages, you can set how VibrantLogs prints the time and date. </p>
+
+</div>
+</div>
+<a id="adda4bbfd233374e28638830d24421ae7" name="adda4bbfd233374e28638830d24421ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adda4bbfd233374e28638830d24421ae7">&#9670;&#160;</a></span>vl_datetime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct vl_datetime vl_datetime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Holds time data (hour, minute, and second), as well as date information (year, month, and day).</p>
+<p>Each time and date component is an unsigned integer. </p>
+
+</div>
+</div>
+<a id="a9bdf59168b1912437df119b356ecb057" name="a9bdf59168b1912437df119b356ecb057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bdf59168b1912437df119b356ecb057">&#9670;&#160;</a></span>vl_timestamp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct vl_timestamp vl_timestamp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Holds time data (hour, minute, and second).</p>
+<p>Each time component is an unsigned integer. </p>
+
+</div>
+</div>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
 <a id="a475d66700920956bc28bd93c12369c44" name="a475d66700920956bc28bd93c12369c44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a475d66700920956bc28bd93c12369c44">&#9670;&#160;</a></span>vl_type</h2>
@@ -500,7 +563,27 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Obtains the current color scheme of VibrantLogs. </p>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="aa78d2385efb9057ebc1e701769eb657c" name="aa78d2385efb9057ebc1e701769eb657c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa78d2385efb9057ebc1e701769eb657c">&#9670;&#160;</a></span>vl_curr_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../db/db9/structvl__config.html">vl_config</a> * vl_curr_config </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Obtains the current config of VibrantLogs. </p>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -536,7 +619,143 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The max length of a VibrantLogs message is 256 characters.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="a661a95e972bb141ec496bcd8fd32e9ab" name="a661a95e972bb141ec496bcd8fd32e9ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a661a95e972bb141ec496bcd8fd32e9ab">&#9670;&#160;</a></span>vl_get_date()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> int vl_get_date </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inserts the current date string into the given buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>The buffer to insert the date into. </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the buffer in bytes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>For the buffer to hold the full date string, it should hold 13 bytes, including the null terminator.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="a762169f56b70d1771dc7f643ccce25c7" name="a762169f56b70d1771dc7f643ccce25c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a762169f56b70d1771dc7f643ccce25c7">&#9670;&#160;</a></span>vl_get_datetime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../dc/d41/structvl__datetime.html">vl_datetime</a> vl_get_datetime </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Obtains a date-time based on the current time and date. </p>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="a8311f64bbc3026d9de695c7b62834433" name="a8311f64bbc3026d9de695c7b62834433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8311f64bbc3026d9de695c7b62834433">&#9670;&#160;</a></span>vl_get_future_datetime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../dc/d41/structvl__datetime.html">vl_datetime</a> vl_get_future_datetime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d41/structvl__datetime.html">vl_datetime</a> *</td>          <td class="paramname"><span class="paramname"><em>now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>years</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>months</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>days</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>sec</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Obtains a new date-time in the future based on the given hours, minutes, and seconds. </p>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="abafb4b3bf346bc1707d3d22c11abdc81" name="abafb4b3bf346bc1707d3d22c11abdc81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abafb4b3bf346bc1707d3d22c11abdc81">&#9670;&#160;</a></span>vl_get_future_timestamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a> vl_get_future_timestamp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a> *</td>          <td class="paramname"><span class="paramname"><em>now</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>hours</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>sec</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Obtains a new timestamp in the future based on the given hours, minutes, and seconds. </p>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -578,7 +797,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -608,10 +827,30 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>For the buffer to hold the full time string, it should hold 12 bytes, including the null terminator.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>For the buffer to hold the full time string, it should hold 11 bytes, including the null terminator.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="a989a685289a1d90118997d78d6b64e6e" name="a989a685289a1d90118997d78d6b64e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a989a685289a1d90118997d78d6b64e6e">&#9670;&#160;</a></span>vl_get_timestamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> <a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a> vl_get_timestamp </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Obtains a timestamp based on the current time. </p>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -633,7 +872,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>This must be called for VibrantLogs to work properly.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -664,7 +903,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The max length of a VibrantLogs message is 256 characters.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -686,7 +925,7 @@ Functions</h2></td></tr>
 <p>The initial color scheme of VibrantLogs is equal to VL_DEFAULT_COLORS.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#a95bd8dd6360cb46f9ff5cc538eee4c93">VL_DEFAULT_COLORS</a> </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -708,7 +947,7 @@ Functions</h2></td></tr>
 <p>Setting the log level will prevent VibrantLogs from printing certain log messages based on their type. For example, setting the log level to VL_WARNING means VibrantLogs can only print out warning and error messages. Setting it to VL_ERROR means only error messages can be printed. By default, the log level is set to VL_INFO, which means any type of message can be printed.</p>
 <dl class="section note"><dt>Note</dt><dd>VL_SUCCESS and VL_DEBUG are exceptions to this rule. No matter the log level of VibrantLogs, these types of messages will always print. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -732,7 +971,7 @@ Functions</h2></td></tr>
 <dl class="section important"><dt>Important</dt><dd>When writing to a destination outside of the terminal, such as a text file, VibrantLogs will not be able to print in color.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>1 on success, 0 on failure. </dd></dl>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>
@@ -753,7 +992,28 @@ Functions</h2></td></tr>
 <p>Updates the VibrantLogs library.</p>
 <p>This function is used to update delayed logs. It must be called in the program's event loop. The function also needs the delta time value of the program. Delta time is the time between the last frame and the current frame. </p>
 
-<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00174">VL_API</a>.</p>
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
+
+</div>
+</div>
+<a id="a9020baa18fecdcb9593513d60d9dd48b" name="a9020baa18fecdcb9593513d60d9dd48b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9020baa18fecdcb9593513d60d9dd48b">&#9670;&#160;</a></span>vl_use_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7587fd8373e10d56375c7829aefbe95">VL_API</a> void vl_use_config </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/db9/structvl__config.html">vl_config</a></td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the config of VibrantLogs.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/db9/structvl__config.html">vl_config</a>. </dd></dl>
+
+<p class="reference">References <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00259">VL_API</a>.</p>
 
 </div>
 </div>

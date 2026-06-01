@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['g_0',['g',['../d3/d2b/structvl__color.html#a6a564ad7f5101e01a5d785b04a2c49ce',1,'vl_color']]]
+  ['g_0',['g',['../d3/d2b/structvl__color.html#ac22590772d6b79d1c76c96202131ff80',1,'vl_color']]]
 ];

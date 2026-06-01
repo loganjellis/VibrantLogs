@@ -19,7 +19,7 @@
 #define VL_MAX_DELAY_MSGS 64
 // enough chars to fit the time string in VibrantLogs ('[HH:MM:SS]') (includes null terminator)
 #define VL_TIME_STR_LEN 11
-// enough chars to fit the date string in VibrantLogs ('[YYYY-MM-DD]') (includes null terminator)
+// enough chars to fit the date string in VibrantLogs ('[MM-DD-YYYY]') (includes null terminator)
 #define VL_DATE_STR_LEN 13
 
 typedef struct vl_delayed_msg
@@ -245,7 +245,7 @@ int vl_get_date(char *buffer, size_t size)
 	time_info = localtime(&raw_time);
 
 	// copy string into buffer
-	strftime(buffer, size, "[%Y-%m-%d]", time_info);
+	strftime(buffer, size, "[%m-%d-%Y]", time_info);
 
 	return 1;
 }
@@ -283,55 +283,66 @@ vl_timestamp vl_get_timestamp()
 	memcpy(sec, time + 7, 2);
 	sec[2] = '\0';
 
-	ts.hours = strtoul(hour, NULL, 10);
-	ts.minutes = strtoul(min, NULL, 10);
-	ts.seconds = strtoul(sec, NULL, 10);
+	ts.hour = strtoul(hour, NULL, 10);
+	ts.minute = strtoul(min, NULL, 10);
+	ts.second = strtoul(sec, NULL, 10);
 
 	return ts;
 }
-// helper function for going to next complete time (either next hour or next minute, or both)
+// going to next complete time (either next hour or next minute, or both)
 static void vl_increment_timestamp(vl_timestamp *ts)
 {
-	ts -> minutes -= 60;
-	ts -> hours += 1;
-	if(ts -> hours > 24)
-		ts -> hours -= 24;
+	ts -> minute -= 60;
+	ts -> hour += 1;
+	if(ts -> hour > 24)
+		ts -> hour -= 24;
 }
 vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours, unsigned int min, unsigned int sec)
 {
+	if(!now)
+	{
+		vl_log(VL_ERROR, "Cannot get future timestamp, 'now' is null.");
+		return (vl_timestamp) {0};
+	}
+
 	vl_timestamp future = *now;
 
 	// add hours, min, and sec to now
 
 	// first add hours to now.hour
-	future.hours += hours;
+	future.hour += hours;
 	// then, as long as now.hour exceeds 24, subtract 24 to loop back
-	while(future.hours > 24)
-		future.hours -= 24;
+	while(future.hour > 24)
+		future.hour -= 24;
 
 	// now add minutes
-	future.minutes += min;
+	future.minute += min;
 	/* then, as long as now.minute exceeds 60, subtract 60 to loop back,
 	and also increment now.hour (looping hour back as needed) */
-	while(future.minutes > 60)
+	while(future.minute > 60)
 		vl_increment_timestamp(&future);
 
 	// now add seconds
-	future.seconds += sec;
+	future.second += sec;
 	/* then, as long as now.second exceeds 60, subtract 60 to loop back,
-	and also increment now.minute (looping back min as needed, and
+	and alsoincrement now.minute (looping back min as needed, and
 	also checking for a new hour reached if now.minute reaches 60). */
-	while(future.seconds > 60)
+	while(future.second > 60)
 	{
-		future.seconds -= 60;
-		future.minutes += 1;
-		if(future.minutes > 60)
+		future.second -= 60;
+		future.minute += 1;
+		if(future.minute > 60)
 			vl_increment_timestamp(&future);
 	}
 
 	return future;
 }
 
+// figure out if a year is a leap year
+static bool vl_is_leap_year(unsigned int year)
+{
+	return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+}
 vl_datetime vl_get_datetime()
 {
 	vl_datetime dt = {0};
@@ -340,27 +351,136 @@ vl_datetime vl_get_datetime()
 	char date[VL_DATE_STR_LEN];
 	vl_get_date(date, sizeof date);
 
-	// parse year, month, and day from date string: ('[YYYY-MM-DD]')
+	// parse year, month, and day from date string: ('[MM-DD-YYYY]')
 	char year[5], month[3], day[3];
 
 	// copy substrings into respective buffers
-	memcpy(year, date + 1, 4);
-	year[4] = '\0';
-
-	memcpy(month, date + 6, 2);
+	memcpy(month, date + 1, 2);
 	month[2] = '\0';
 
-	memcpy(day, date + 9, 2);
+	memcpy(day, date + 4, 2);
 	day[2] = '\0';
+
+	memcpy(year, date + 7, 4);
+	year[4] = '\0';
 
 	dt.year = strtoul(year, NULL, 10);
 	dt.month = strtoul(month, NULL, 10);
 	dt.day = strtoul(day, NULL, 10);
+	// determine if the year is a leap year
+	dt.is_leap_year = vl_is_leap_year(dt.year);
 
 	// get timestamp
 	dt.timestamp = vl_get_timestamp();
 
 	return dt;
+}
+// get max day count for month in a date-time
+static unsigned int vl_num_days_in_month(vl_datetime *dt)
+{
+	if(dt -> month == 1 || dt -> month == 3 || dt -> month == 5
+			|| dt -> month == 7 || dt -> month == 8 || dt -> month == 10
+			|| dt -> month == 12)
+		return 31;
+	else if(dt -> month == 2)
+		return dt -> is_leap_year ? 29 : 28;
+	else
+		return 30;
+}
+// going to next complete date-time (either next year or next month, or both)
+static void vl_increment_datetime(vl_datetime *dt)
+{
+	dt -> month -= 12;
+	dt -> year += 1;
+	// re-determine if year is a leap year
+	dt -> is_leap_year = vl_is_leap_year(dt -> year);
+}
+// adding just days to a date-time
+static void vl_add_days_datetime(vl_datetime *dt, unsigned int days)
+{
+	dt -> day += days;
+	unsigned int max_month_days = vl_num_days_in_month(dt);
+	while(dt -> day > max_month_days)
+	{
+		dt -> day -= max_month_days;
+		dt -> month += 1;
+		if(dt -> month > 12)
+			vl_increment_datetime(dt);
+		// re-calculate max_month_days
+		max_month_days = vl_num_days_in_month(dt);
+	}
+}
+vl_datetime vl_get_future_datetime(const vl_datetime *now, unsigned int years, unsigned int months, unsigned int days, unsigned int hours, unsigned int min, unsigned int sec)
+{
+	if(!now)
+	{
+		vl_log(VL_ERROR, "Cannot get future date-time, 'now' is null.");
+		return (vl_datetime) {0};
+	}
+
+	vl_datetime future = *now;
+
+	// add years, months, and days to now
+
+	// first add years to now.year
+	future.year += years;
+	
+	// now add months
+	future.month += months;
+	/* then as long as future.months exceeds 12, subtract 12 to loop back,
+	and also increment future.years */
+	while(future.month > 12)
+		vl_increment_datetime(&future);
+
+	// now add days
+	vl_add_days_datetime(&future, days);
+
+	// add to time (while tracking new days, months, and years)
+	vl_timestamp *fts = &future.timestamp;
+
+	// first add hours
+	fts -> hour += hours;
+	// then, as long as future.hour exceeds 24, subtract 24 to loop back, and increase day
+	while(fts -> hour > 24)
+	{
+		fts -> hour -= 24;
+		vl_add_days_datetime(&future, 1);
+	}
+
+	// then add min
+	fts -> minute += min;
+	// then, as long as future.minute exceeds 60, subtract 60 to loop back, and increase hour (check for new day as well)
+	while(fts -> minute > 60)
+	{
+		fts -> minute -= 60;
+		fts -> hour += 1;
+		if(fts -> hour > 24)
+		{
+			fts -> hour -= 24;
+			vl_add_days_datetime(&future, 1);
+		}
+	}
+
+	// then add sec
+	fts -> second += sec;
+	// then, as long as future.second exceeds 60, subtract 60 to loop back, and increase minute (check for new hour/new day as well)
+	while(fts -> second > 60)
+	{
+		fts -> second -= 60;
+		fts -> minute += 1;
+		if(fts -> minute > 60)
+		{
+			fts -> minute -= 60;
+			fts -> hour += 1;
+			if(fts -> hour > 24)
+			{
+				fts -> hour -= 24;
+				vl_add_days_datetime(&future, 1);
+			}
+		}
+	}
+
+	return future;
 }
 
 int vl_log(vl_type log_type, const char *fmt, ...)
