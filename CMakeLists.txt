@@ -24,6 +24,9 @@ target_compile_definitions(vibrant_logs PRIVATE $<$<BOOL:${BUILD_SHARED_LIBS}>:V
 # include dirs
 target_include_directories(vibrant_logs PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
+# add Timey to VibrantLogs
+target_link_libraries(vibrant_logs PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/lib/timey.lib")
+
 # executable for testing!
 add_executable(VibrantLogs_test "${CMAKE_CURRENT_SOURCE_DIR}/example.c")
 target_link_libraries(VibrantLogs_test PRIVATE vibrant_logs)

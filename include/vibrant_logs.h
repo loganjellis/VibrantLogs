@@ -176,58 +176,6 @@ typedef struct vl_color_scheme
 	};
 
 /**
-  Holds time data (hour, minute, and second).
-
-  Each time component is an unsigned integer.
-*/
-typedef struct vl_timestamp
-{
-	/**
-	  The time's hour.
-	*/
-	unsigned int hour;
-	/**
-	  The time's minute.
-	*/
-	unsigned int minute;
-	/**
-	  The time's second.
-	*/
-	unsigned int second;
-} vl_timestamp;
-
-/**
-  Holds time data (hour, minute, and second),
-  as well as date information (year, month, and day).
-
-  Each time and date component is an unsigned integer.
-*/
-typedef struct vl_datetime
-{
-	/**
-	  The timestamp.
-	*/
-	vl_timestamp timestamp;
-	/**
-	  The year.
-	*/
-	unsigned int year;
-	/**
-	  The month.
-	*/
-	unsigned int month;
-	/**
-	  The day of the month.
-	*/
-	unsigned int day;
-	/**
-	  Whether or not the year of this date-time
-	  is a leap year.
-	*/
-	bool is_leap_year;
-} vl_datetime;
-
-/**
   Represents a custom config for VibrantLogs.
 
   When VibrantLogs logs messages, you can set
@@ -235,6 +183,30 @@ typedef struct vl_datetime
 */
 typedef struct vl_config
 {
+	/**
+	  The color scheme of VibrantLogs.
+	*/
+	vl_color_scheme colors;
+	/**
+	  The output destination of VibrantLogs
+	  messages.
+
+	  The default destination is stdout, but
+	  you can set this to another file, and VibrantLogs
+	  will write to that file instead.
+	*/
+	FILE *output_destination;
+	/**
+	  The log level of VibrantLogs.
+
+	  This acts as a filter for which log messages are
+	  allowed through. For example, if the log level
+	  is VL_ERROR, only error messages are printed,
+	  but if the log level is VL_WARNING, then both
+	  warning and error messages are shown. The VL_DEBUG
+	  and VL_SUCCESS log types are exceptions to this rule.
+	*/
+	vl_type log_level;
 	/**
 	  Indicates whether or not VibrantLogs will
 	  print the current time. This is true by default.
@@ -270,54 +242,6 @@ typedef struct vl_config
 VL_API int vl_init(void);
 
 /**
-  Sets the location of the output from VibrantLogs.
-
-  The default output location is stdout.
-
-  @note VibrantLogs does not manage the FILE* passed
-  in here, so any operations other than writing
-  to it will have to be performed by the user.
-
-  @important When writing to a destination outside
-  of the terminal, such as a text file, VibrantLogs
-  will not be able to print in color.
-
-  @return 1 on success, 0 on failure.
-*/
-VL_API int vl_set_output_destination(FILE *dest);
-
-/**
-  Sets the log level of VibrantLogs.
-
-  Setting the log level will prevent VibrantLogs
-  from printing certain log messages based on their
-  type. For example, setting the log level to VL_WARNING
-  means VibrantLogs can only print out warning and error
-  messages. Setting it to VL_ERROR means only error messages
-  can be printed. By default, the log level is set to
-  VL_INFO, which means any type of message can be printed.
-
-  @note VL_SUCCESS and VL_DEBUG are exceptions to this
-  rule. No matter the log level of VibrantLogs, these
-  types of messages will always print.
-*/
-VL_API void vl_set_log_level(vl_type level);
-
-/**
-  Sets the color scheme of VibrantLogs.
-
-  The initial color scheme of VibrantLogs
-  is equal to VL_DEFAULT_COLORS.
-
-  @see VL_DEFAULT_COLORS
-*/
-VL_API void vl_set_colors(vl_color_scheme color_scheme);
-/**
-  Obtains the current color scheme of VibrantLogs.
-*/
-VL_API vl_color_scheme *vl_curr_colors(void);
-
-/**
   Sets the config of VibrantLogs.
 
   @see vl_config.
@@ -327,61 +251,6 @@ VL_API void vl_use_config(vl_config cfg);
   Obtains the current config of VibrantLogs.
 */
 VL_API vl_config *vl_curr_config(void);
-
-/**
-  Inserts the current time string into the given buffer.
-
-  @param buffer The buffer to insert the time into.
-  @param size The size of the buffer in bytes.
-
-  @note For the buffer to hold the full time string, it should
-  hold 11 bytes, including the null terminator.
-
-  @return 1 on success, 0 on failure.
-*/
-VL_API int vl_get_time(char *buffer, size_t size);
-/**
-  Inserts the current date string into the given buffer.
-
-  @param buffer The buffer to insert the date into.
-  @param size The size of the buffer in bytes.
-
-  @note For the buffer to hold the full date string, it should
-  hold 13 bytes, including the null terminator.
-
-  @return 1 on success, 0 on failure.
-*/
-VL_API int vl_get_date(char *buffer, size_t size);
-/**
-  Inserts a formatted string into a buffer.
-
-  @param buffer The buffer to insert the formatted
-  string into.
-  @param size The size of the buffer in bytes.
-
-  @return 1 on success, 0 on failure.
-*/
-VL_API int vl_get_str(char *buffer, size_t size, const char *fmt, ...);
-
-/**
-  Obtains a timestamp based on the current time.
-*/
-VL_API vl_timestamp vl_get_timestamp(void);
-/**
-  Obtains a new timestamp in the future based
-  on the given hours, minutes, and seconds.
-*/
-VL_API vl_timestamp vl_get_future_timestamp(const vl_timestamp *now, unsigned int hours, unsigned int min, unsigned int sec);
-
-/**
-  Obtains a date-time based on the current time and date.
-*/
-VL_API vl_datetime vl_get_datetime(void);
-/**
-  Obtains a new date-time in the future based on
-  the given hours, minutes, and seconds.
-*/
-VL_API vl_datetime vl_get_future_datetime(const vl_datetime *now, unsigned int years, unsigned int months, unsigned int days, unsigned int hours, unsigned int min, unsigned int sec);
 
 /**
   Prints a message.
