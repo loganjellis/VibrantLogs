@@ -97,6 +97,9 @@ $(function(){initNavTree('db/db9/structvl__config.html','../../','d1/dc8/structv
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a49e9a538e06c452a24c7886f7f77769a" id="r_a49e9a538e06c452a24c7886f7f77769a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49e9a538e06c452a24c7886f7f77769a">colors</a></td></tr>
+<tr class="memitem:a19e25e4351c2d78debabbdeb5b5dc4df" id="r_a19e25e4351c2d78debabbdeb5b5dc4df"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19e25e4351c2d78debabbdeb5b5dc4df">output_destination</a></td></tr>
+<tr class="memitem:a49be3f1cf26655d6262c8c2f9aeedd70" id="r_a49be3f1cf26655d6262c8c2f9aeedd70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44">vl_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49be3f1cf26655d6262c8c2f9aeedd70">log_level</a></td></tr>
 <tr class="memitem:a0519ce72d15926b02d924dcb4df7b762" id="r_a0519ce72d15926b02d924dcb4df7b762"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0519ce72d15926b02d924dcb4df7b762">print_time</a></td></tr>
 <tr class="memitem:a53530a19c0c840c0c97aad3742d1d9a6" id="r_a53530a19c0c840c0c97aad3742d1d9a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53530a19c0c840c0c97aad3742d1d9a6">print_date</a></td></tr>
 </table>
@@ -104,8 +107,61 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Represents a custom config for VibrantLogs.</p>
 <p>When VibrantLogs logs messages, you can set how VibrantLogs prints the time and date. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00236">236</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00184">184</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a49e9a538e06c452a24c7886f7f77769a" name="a49e9a538e06c452a24c7886f7f77769a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e9a538e06c452a24c7886f7f77769a">&#9670;&#160;</a></span>colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d05/structvl__color__scheme.html">vl_color_scheme</a> vl_config::colors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The color scheme of VibrantLogs. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00189">189</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+
+</div>
+</div>
+<a id="a49be3f1cf26655d6262c8c2f9aeedd70" name="a49be3f1cf26655d6262c8c2f9aeedd70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49be3f1cf26655d6262c8c2f9aeedd70">&#9670;&#160;</a></span>log_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d25/vibrant__logs_8h.html#a475d66700920956bc28bd93c12369c44">vl_type</a> vl_config::log_level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The log level of VibrantLogs.</p>
+<p>This acts as a filter for which log messages are allowed through. For example, if the log level is VL_ERROR, only error messages are printed, but if the log level is VL_WARNING, then both warning and error messages are shown. The VL_DEBUG and VL_SUCCESS log types are exceptions to this rule. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00209">209</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+
+</div>
+</div>
+<a id="a19e25e4351c2d78debabbdeb5b5dc4df" name="a19e25e4351c2d78debabbdeb5b5dc4df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19e25e4351c2d78debabbdeb5b5dc4df">&#9670;&#160;</a></span>output_destination</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* vl_config::output_destination</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The output destination of VibrantLogs messages.</p>
+<p>The default destination is stdout, but you can set this to another file, and VibrantLogs will write to that file instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00198">198</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+
+</div>
+</div>
 <a id="a53530a19c0c840c0c97aad3742d1d9a6" name="a53530a19c0c840c0c97aad3742d1d9a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53530a19c0c840c0c97aad3742d1d9a6">&#9670;&#160;</a></span>print_date</h2>
 
@@ -119,7 +175,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Indicates whether or not VibrantLogs will print the current date. This includes the day, month, and year. This is false by default. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00249">249</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00221">221</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>
@@ -136,7 +192,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Indicates whether or not VibrantLogs will print the current time. This is true by default. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00242">242</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00214">214</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
 
 </div>
 </div>

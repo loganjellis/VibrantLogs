@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['g_0',['g',['../d3/d2b/structvl__color.html#ac22590772d6b79d1c76c96202131ff80',1,'vl_color']]]
+  ['error_5fcolor_0',['error_color',['../d2/d05/structvl__color__scheme.html#ad6ea49c7c08382bf533194ae9550e2dc',1,'vl_color_scheme']]],
+  ['error_5fprefix_5fcolor_1',['error_prefix_color',['../d2/d05/structvl__color__scheme.html#a214ec0f2e31e277729b1b852a1eb5425',1,'vl_color_scheme']]]
 ];

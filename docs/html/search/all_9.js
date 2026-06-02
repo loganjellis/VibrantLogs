@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['second_0',['second',['../d9/d90/structvl__timestamp.html#af63b6d0f30ecda471d256bdef37d69e3',1,'vl_timestamp']]],
-  ['success_5fcolor_1',['success_color',['../d2/d05/structvl__color__scheme.html#a90121409fec280fd04ec945490e4aa3f',1,'vl_color_scheme']]],
-  ['success_5fprefix_5fcolor_2',['success_prefix_color',['../d2/d05/structvl__color__scheme.html#a095e93392d3d77720315a2eda2b60152',1,'vl_color_scheme']]]
+  ['output_5fdestination_0',['output_destination',['../db/db9/structvl__config.html#a19e25e4351c2d78debabbdeb5b5dc4df',1,'vl_config']]]
 ];

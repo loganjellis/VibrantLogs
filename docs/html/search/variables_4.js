@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hour_0',['hour',['../d9/d90/structvl__timestamp.html#ab439255ae0d116f199a961ef0c8feb0e',1,'vl_timestamp']]]
+  ['g_0',['g',['../d3/d2b/structvl__color.html#ac22590772d6b79d1c76c96202131ff80',1,'vl_color']]]
 ];

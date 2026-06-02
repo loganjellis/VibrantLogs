@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['minute_0',['minute',['../d9/d90/structvl__timestamp.html#aad6b2fe8f0c29874e1bb16e8611900b2',1,'vl_timestamp']]],
-  ['month_1',['month',['../dc/d41/structvl__datetime.html#afbcab58aa67c9734a01cb741f50e4d1e',1,'vl_datetime']]]
+  ['info_5fcolor_0',['info_color',['../d2/d05/structvl__color__scheme.html#a858bea91c60c0d1f03fe0a26472901e5',1,'vl_color_scheme']]],
+  ['info_5fprefix_5fcolor_1',['info_prefix_color',['../d2/d05/structvl__color__scheme.html#a44da778e276ee2b60f6f6e0e10123458',1,'vl_color_scheme']]],
+  ['is_5fleap_5fyear_2',['is_leap_year',['../da/db9/structtimey__datetime.html#a95286ffb7e6f942061072523a9cc4899',1,'timey_datetime']]]
 ];

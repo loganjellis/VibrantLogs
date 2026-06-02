@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>VibrantLogs: vl_datetime Struct Reference</title>
+<title>VibrantLogs: timey_datetime Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('dc/d41/structvl__datetime.html','../../','d2/dc1/structvl__datetime-members'); });
+$(function(){initNavTree('da/db9/structtimey__datetime.html','../../','d9/d9f/structtimey__datetime-members'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,113 +89,113 @@ $(function(){initNavTree('dc/d41/structvl__datetime.html','../../','d2/dc1/struc
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">vl_datetime Struct Reference</div></div>
+  <div class="headertitle"><div class="title">timey_datetime Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:accd3599648c343ce96218665ba4432df" id="r_accd3599648c343ce96218665ba4432df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accd3599648c343ce96218665ba4432df">timestamp</a></td></tr>
-<tr class="memitem:a3923daec0d41a807fd2d1c7252e30ecf" id="r_a3923daec0d41a807fd2d1c7252e30ecf"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3923daec0d41a807fd2d1c7252e30ecf">year</a></td></tr>
-<tr class="memitem:afbcab58aa67c9734a01cb741f50e4d1e" id="r_afbcab58aa67c9734a01cb741f50e4d1e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbcab58aa67c9734a01cb741f50e4d1e">month</a></td></tr>
-<tr class="memitem:a2f710d317a5ec265d92675fa71da63f9" id="r_a2f710d317a5ec265d92675fa71da63f9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f710d317a5ec265d92675fa71da63f9">day</a></td></tr>
-<tr class="memitem:aef1761e29d948871077e47d3ad8b9655" id="r_aef1761e29d948871077e47d3ad8b9655"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef1761e29d948871077e47d3ad8b9655">is_leap_year</a></td></tr>
+<tr class="memitem:a32a166c8de404a425121b24a1cd07db1" id="r_a32a166c8de404a425121b24a1cd07db1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/de6/structtimey__timestamp.html">timey_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32a166c8de404a425121b24a1cd07db1">time</a></td></tr>
+<tr class="memitem:ad474ee0c0e26dca96ba23efffdf28fb9" id="r_ad474ee0c0e26dca96ba23efffdf28fb9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad474ee0c0e26dca96ba23efffdf28fb9">year</a></td></tr>
+<tr class="memitem:a5869dcdb4cfccf89b670fa247a4c74fe" id="r_a5869dcdb4cfccf89b670fa247a4c74fe"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5869dcdb4cfccf89b670fa247a4c74fe">month</a></td></tr>
+<tr class="memitem:ab497e4511bdf3096f2bf946fb79b88b3" id="r_ab497e4511bdf3096f2bf946fb79b88b3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab497e4511bdf3096f2bf946fb79b88b3">day</a></td></tr>
+<tr class="memitem:a95286ffb7e6f942061072523a9cc4899" id="r_a95286ffb7e6f942061072523a9cc4899"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95286ffb7e6f942061072523a9cc4899">is_leap_year</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds time data (hour, minute, and second), as well as date information (year, month, and day).</p>
-<p>Each time and date component is an unsigned integer. </p>
+<p>Each component is an unsigned integer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00205">205</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00030">30</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a2f710d317a5ec265d92675fa71da63f9" name="a2f710d317a5ec265d92675fa71da63f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f710d317a5ec265d92675fa71da63f9">&#9670;&#160;</a></span>day</h2>
+<a id="ab497e4511bdf3096f2bf946fb79b88b3" name="ab497e4511bdf3096f2bf946fb79b88b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab497e4511bdf3096f2bf946fb79b88b3">&#9670;&#160;</a></span>day</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int vl_datetime::day</td>
+          <td class="memname">unsigned int timey_datetime::day</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The day of the month. </p>
+<p>The date's day. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00222">222</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00047">47</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
-<a id="aef1761e29d948871077e47d3ad8b9655" name="aef1761e29d948871077e47d3ad8b9655"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef1761e29d948871077e47d3ad8b9655">&#9670;&#160;</a></span>is_leap_year</h2>
+<a id="a95286ffb7e6f942061072523a9cc4899" name="a95286ffb7e6f942061072523a9cc4899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95286ffb7e6f942061072523a9cc4899">&#9670;&#160;</a></span>is_leap_year</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool vl_datetime::is_leap_year</td>
+          <td class="memname">bool timey_datetime::is_leap_year</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Whether or not the year of this date-time is a leap year. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00227">227</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00052">52</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
-<a id="afbcab58aa67c9734a01cb741f50e4d1e" name="afbcab58aa67c9734a01cb741f50e4d1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbcab58aa67c9734a01cb741f50e4d1e">&#9670;&#160;</a></span>month</h2>
+<a id="a5869dcdb4cfccf89b670fa247a4c74fe" name="a5869dcdb4cfccf89b670fa247a4c74fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5869dcdb4cfccf89b670fa247a4c74fe">&#9670;&#160;</a></span>month</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int vl_datetime::month</td>
+          <td class="memname">unsigned int timey_datetime::month</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The month. </p>
+<p>The date's month. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00218">218</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00043">43</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
-<a id="accd3599648c343ce96218665ba4432df" name="accd3599648c343ce96218665ba4432df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accd3599648c343ce96218665ba4432df">&#9670;&#160;</a></span>timestamp</h2>
+<a id="a32a166c8de404a425121b24a1cd07db1" name="a32a166c8de404a425121b24a1cd07db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32a166c8de404a425121b24a1cd07db1">&#9670;&#160;</a></span>time</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/d90/structvl__timestamp.html">vl_timestamp</a> vl_datetime::timestamp</td>
+          <td class="memname"><a class="el" href="../../de/de6/structtimey__timestamp.html">timey_timestamp</a> timey_datetime::time</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>The timestamp. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00210">210</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00035">35</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
-<a id="a3923daec0d41a807fd2d1c7252e30ecf" name="a3923daec0d41a807fd2d1c7252e30ecf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3923daec0d41a807fd2d1c7252e30ecf">&#9670;&#160;</a></span>year</h2>
+<a id="ad474ee0c0e26dca96ba23efffdf28fb9" name="ad474ee0c0e26dca96ba23efffdf28fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad474ee0c0e26dca96ba23efffdf28fb9">&#9670;&#160;</a></span>year</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int vl_datetime::year</td>
+          <td class="memname">unsigned int timey_datetime::year</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The year. </p>
+<p>The date's year. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00214">214</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00039">39</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/<a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a></li>
+<li>include/<a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -210,7 +210,7 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dc/d41/structvl__datetime.html">vl_datetime</a></li>
+    <li class="navelem"><a href="../../da/db9/structtimey__datetime.html">timey_datetime</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

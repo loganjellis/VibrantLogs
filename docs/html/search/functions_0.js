@@ -1,20 +1,12 @@
 var searchData=
 [
-  ['vl_5fcurr_5fcolors_0',['vl_curr_colors',['../da/d25/vibrant__logs_8h.html#a77b05543c1c5fb53ec038e30decd83c0',1,'vibrant_logs.h']]],
-  ['vl_5fcurr_5fconfig_1',['vl_curr_config',['../da/d25/vibrant__logs_8h.html#aa78d2385efb9057ebc1e701769eb657c',1,'vibrant_logs.h']]],
-  ['vl_5fdelay_5flog_2',['vl_delay_log',['../da/d25/vibrant__logs_8h.html#a3d9432f7fd8699928a2dad27c4378119',1,'vibrant_logs.h']]],
-  ['vl_5fget_5fdate_3',['vl_get_date',['../da/d25/vibrant__logs_8h.html#a661a95e972bb141ec496bcd8fd32e9ab',1,'vibrant_logs.h']]],
-  ['vl_5fget_5fdatetime_4',['vl_get_datetime',['../da/d25/vibrant__logs_8h.html#a762169f56b70d1771dc7f643ccce25c7',1,'vibrant_logs.h']]],
-  ['vl_5fget_5ffuture_5fdatetime_5',['vl_get_future_datetime',['../da/d25/vibrant__logs_8h.html#a8311f64bbc3026d9de695c7b62834433',1,'vibrant_logs.h']]],
-  ['vl_5fget_5ffuture_5ftimestamp_6',['vl_get_future_timestamp',['../da/d25/vibrant__logs_8h.html#abafb4b3bf346bc1707d3d22c11abdc81',1,'vibrant_logs.h']]],
-  ['vl_5fget_5fstr_7',['vl_get_str',['../da/d25/vibrant__logs_8h.html#a8bae9d235282b2d9b76ddf0bd57acc05',1,'vibrant_logs.h']]],
-  ['vl_5fget_5ftime_8',['vl_get_time',['../da/d25/vibrant__logs_8h.html#a2f1299f9d2bc59c87446b1bb210b096f',1,'vibrant_logs.h']]],
-  ['vl_5fget_5ftimestamp_9',['vl_get_timestamp',['../da/d25/vibrant__logs_8h.html#a989a685289a1d90118997d78d6b64e6e',1,'vibrant_logs.h']]],
-  ['vl_5finit_10',['vl_init',['../da/d25/vibrant__logs_8h.html#a9e2f27e0e7a53c27935b7cbe66d0e2fb',1,'vibrant_logs.h']]],
-  ['vl_5flog_11',['vl_log',['../da/d25/vibrant__logs_8h.html#aed16ae1b5919bc99745d1ec9f73dfd11',1,'vibrant_logs.h']]],
-  ['vl_5fset_5fcolors_12',['vl_set_colors',['../da/d25/vibrant__logs_8h.html#af6a8f755c0e8a03fffe522fb8b9fa43f',1,'vibrant_logs.h']]],
-  ['vl_5fset_5flog_5flevel_13',['vl_set_log_level',['../da/d25/vibrant__logs_8h.html#ac683bd7ea5a24e00769db7d82dfc5372',1,'vibrant_logs.h']]],
-  ['vl_5fset_5foutput_5fdestination_14',['vl_set_output_destination',['../da/d25/vibrant__logs_8h.html#a87369d1d15dd31ccb461e011c33dca89',1,'vibrant_logs.h']]],
-  ['vl_5fupdate_15',['vl_update',['../da/d25/vibrant__logs_8h.html#ae2d8bb8d6aa8619f61374ab674078cee',1,'vibrant_logs.h']]],
-  ['vl_5fuse_5fconfig_16',['vl_use_config',['../da/d25/vibrant__logs_8h.html#a9020baa18fecdcb9593513d60d9dd48b',1,'vibrant_logs.h']]]
+  ['timey_5fcurr_5fdatetime_0',['timey_curr_datetime',['../d8/d05/timey_8h.html#a02a8b9052f142212fdacb6fb6c213268',1,'timey.h']]],
+  ['timey_5fcurr_5ftimestamp_1',['timey_curr_timestamp',['../d8/d05/timey_8h.html#aaadca3a2da71a7f3c33821a41e672446',1,'timey.h']]],
+  ['timey_5ffuture_5fdatetime_2',['timey_future_datetime',['../d8/d05/timey_8h.html#aa32397f217e3c67d28b48aae97c58a35',1,'timey.h']]],
+  ['timey_5ffuture_5ftimestamp_3',['timey_future_timestamp',['../d8/d05/timey_8h.html#a18f806fe96b03068178f5a50998669c4',1,'timey.h']]],
+  ['timey_5fis_5fleap_5fyear_4',['timey_is_leap_year',['../d8/d05/timey_8h.html#a41366d8323910c01dd61e3d206e309ef',1,'timey.h']]],
+  ['timey_5fnum_5fdays_5fin_5fdt_5fmonth_5',['timey_num_days_in_dt_month',['../d8/d05/timey_8h.html#a8276db4df8bd36349b67aec520bf8f69',1,'timey.h']]],
+  ['timey_5fnum_5fdays_5fin_5fmonth_6',['timey_num_days_in_month',['../d8/d05/timey_8h.html#ae445ff0254162a2a48dd925590e3cf2c',1,'timey.h']]],
+  ['timey_5fquery_5fdate_7',['timey_query_date',['../d8/d05/timey_8h.html#a3e21bc5fa46cad0363058ef7097bb04d',1,'timey.h']]],
+  ['timey_5fquery_5ftime_8',['timey_query_time',['../d8/d05/timey_8h.html#ac8d41a3062b3f035a8147c130ee998e4',1,'timey.h']]]
 ];
