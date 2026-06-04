@@ -20,8 +20,8 @@
 #define VL_MAX_DELAY_MSGS 64
 // enough chars to fit the time string in VibrantLogs ('[HH:MM:SS]') (includes null terminator)
 #define VL_TIME_STR_LEN 11
-// enough chars to fit the date string in VibrantLogs ('[MM-DD-YYYY]') (includes null terminator)
-#define VL_DATE_STR_LEN 13
+// enough chars to fit the date string in VibrantLogs ('[MM-DD-YYYY]' or '[MONTH-DD-YYYY]') (includes null terminator)
+#define VL_DATE_STR_LEN 20
 
 typedef struct vl_delayed_msg
 {
@@ -170,12 +170,13 @@ int vl_init()
 	if(vl_is_init)
 		return 0;
 
-	config.output_destination = stdout;
-
-	// setup default config
+	// default config:
 	config.colors = VL_DEFAULT_COLORS;
+	config.output_destination = stdout;
+	config.log_level = VL_INFO;
 	config.print_time = true;
 	config.print_date = false;
+	config.print_month_name = false;
 
 	vl_is_init = true;
 

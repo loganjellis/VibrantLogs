@@ -185,6 +185,8 @@ typedef struct vl_config
 {
 	/**
 	  The color scheme of VibrantLogs.
+
+	  By default, it is set to VL_DEFAULT_COLORS.
 	*/
 	vl_color_scheme colors;
 	/**
@@ -219,6 +221,13 @@ typedef struct vl_config
 	  by default.
 	*/
 	bool print_date;
+	/**
+	  Indicates whether or not VibrantLogs will
+	  print the current date's month as a number
+	  value, or the month's name. This is false by
+	  default.
+	*/
+	bool print_month_name;
 } vl_config;
 
 #ifdef _WIN32
