@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include "timey.h"
 
 /**
   Represents the type of a log statement.
@@ -276,9 +277,36 @@ VL_API int vl_log(vl_type log_type, const char *fmt, ...);
   @note The max length of a VibrantLogs message
   is 256 characters.
 
+  @note This function only works when vl_update(double)
+  is called during the program.
+
   @return 1 on success, 0 on failure.
 */
 VL_API int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...);
+/**
+  Schedules a message using a timestamp.
+
+  @note The max length of a VibrantLogs message
+  is 256 characters.
+
+  @note This function only works when vl_update(double)
+  is called during the program.
+
+  @return 1 on success, 0 on failure.
+*/
+VL_API int vl_schedule_log_ts(vl_type log_type, timey_timestamp *ts, const char *fmt, ...);
+/**
+  Schedules a message using a datetime.
+
+  @note The max length of a VibrantLogs message
+  is 256 characters.
+
+  @note This function only works when vl_update(double)
+  is called during the program.
+
+  @return 1 on success, 0 on failure.
+*/
+VL_API int vl_schedule_log_dt(vl_type log_type, timey_datetime *dt, const char *fmt, ...);
 /**
   Updates the VibrantLogs library.
 

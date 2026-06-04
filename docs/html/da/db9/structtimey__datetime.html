@@ -98,6 +98,8 @@ $(function(){initNavTree('da/db9/structtimey__datetime.html','../../','d9/d9f/st
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a32a166c8de404a425121b24a1cd07db1" id="r_a32a166c8de404a425121b24a1cd07db1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/de6/structtimey__timestamp.html">timey_timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32a166c8de404a425121b24a1cd07db1">time</a></td></tr>
+<tr class="memitem:a5719641e09cce6aafae996ea9ec1dffa" id="r_a5719641e09cce6aafae996ea9ec1dffa"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5719641e09cce6aafae996ea9ec1dffa">month_name</a> [10]</td></tr>
+<tr class="memitem:a22bf9ef1ca260655e9ea24cecba2a820" id="r_a22bf9ef1ca260655e9ea24cecba2a820"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22bf9ef1ca260655e9ea24cecba2a820">day_name</a> [10]</td></tr>
 <tr class="memitem:ad474ee0c0e26dca96ba23efffdf28fb9" id="r_ad474ee0c0e26dca96ba23efffdf28fb9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad474ee0c0e26dca96ba23efffdf28fb9">year</a></td></tr>
 <tr class="memitem:a5869dcdb4cfccf89b670fa247a4c74fe" id="r_a5869dcdb4cfccf89b670fa247a4c74fe"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5869dcdb4cfccf89b670fa247a4c74fe">month</a></td></tr>
 <tr class="memitem:ab497e4511bdf3096f2bf946fb79b88b3" id="r_ab497e4511bdf3096f2bf946fb79b88b3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab497e4511bdf3096f2bf946fb79b88b3">day</a></td></tr>
@@ -107,7 +109,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Holds time data (hour, minute, and second), as well as date information (year, month, and day).</p>
 <p>Each component is an unsigned integer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00030">30</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00066">66</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="ab497e4511bdf3096f2bf946fb79b88b3" name="ab497e4511bdf3096f2bf946fb79b88b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab497e4511bdf3096f2bf946fb79b88b3">&#9670;&#160;</a></span>day</h2>
@@ -122,7 +124,24 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The date's day. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00047">47</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00091">91</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+
+</div>
+</div>
+<a id="a22bf9ef1ca260655e9ea24cecba2a820" name="a22bf9ef1ca260655e9ea24cecba2a820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22bf9ef1ca260655e9ea24cecba2a820">&#9670;&#160;</a></span>day_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char timey_datetime::day_name[10]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The name of the current day. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00079">79</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
@@ -139,7 +158,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Whether or not the year of this date-time is a leap year. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00052">52</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00096">96</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
@@ -156,7 +175,24 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The date's month. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00043">43</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00087">87</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+
+</div>
+</div>
+<a id="a5719641e09cce6aafae996ea9ec1dffa" name="a5719641e09cce6aafae996ea9ec1dffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5719641e09cce6aafae996ea9ec1dffa">&#9670;&#160;</a></span>month_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char timey_datetime::month_name[10]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The date's month name. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00075">75</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
@@ -173,7 +209,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The timestamp. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00035">35</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00071">71</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +226,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The date's year. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00039">39</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00083">83</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>

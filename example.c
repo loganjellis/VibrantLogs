@@ -22,5 +22,14 @@ int main(void)
 	vl_log(VL_WARNING, "Warning.");
 	vl_log(VL_ERROR, "ERROR!");
 
+	timey_datetime now = timey_curr_datetime();
+	timey_datetime future = timey_future_datetime(&now, 0, 0, 0, 0, 0, 10);
+	vl_schedule_log_dt(VL_INFO, &future, "10 seconds after!");
+
+	while(1)
+	{
+		vl_update(0.5);
+	}
+
 	return 0;
 }

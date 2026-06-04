@@ -8,5 +8,6 @@ var searchData=
   ['timey_5fnum_5fdays_5fin_5fdt_5fmonth_5',['timey_num_days_in_dt_month',['../d8/d05/timey_8h.html#a8276db4df8bd36349b67aec520bf8f69',1,'timey.h']]],
   ['timey_5fnum_5fdays_5fin_5fmonth_6',['timey_num_days_in_month',['../d8/d05/timey_8h.html#ae445ff0254162a2a48dd925590e3cf2c',1,'timey.h']]],
   ['timey_5fquery_5fdate_7',['timey_query_date',['../d8/d05/timey_8h.html#a3e21bc5fa46cad0363058ef7097bb04d',1,'timey.h']]],
-  ['timey_5fquery_5ftime_8',['timey_query_time',['../d8/d05/timey_8h.html#ac8d41a3062b3f035a8147c130ee998e4',1,'timey.h']]]
+  ['timey_5fquery_5fraw_5ftime_8',['timey_query_raw_time',['../d8/d05/timey_8h.html#a735ef5afc67564d3baed5fb3b3d3ebdd',1,'timey.h']]],
+  ['timey_5fquery_5ftime_9',['timey_query_time',['../d8/d05/timey_8h.html#ac8d41a3062b3f035a8147c130ee998e4',1,'timey.h']]]
 ];

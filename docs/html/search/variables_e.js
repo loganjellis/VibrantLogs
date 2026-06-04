@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['warning_5fcolor_0',['warning_color',['../d2/d05/structvl__color__scheme.html#aae8541dc53c9ad07b0046f9e767036f1',1,'vl_color_scheme']]],
-  ['warning_5fprefix_5fcolor_1',['warning_prefix_color',['../d2/d05/structvl__color__scheme.html#a341b9ec0d783ccdd598fcd1436b36ae4',1,'vl_color_scheme']]]
+  ['time_0',['time',['../da/db9/structtimey__datetime.html#a32a166c8de404a425121b24a1cd07db1',1,'timey_datetime']]],
+  ['time_5fcolor_1',['time_color',['../d2/d05/structvl__color__scheme.html#a2803364614ece241b1b6a4823a1b4701',1,'vl_color_scheme']]]
 ];

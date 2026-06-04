@@ -11,7 +11,6 @@
 	#include <unistd.h>
 #endif
 
-#include "timey.h"
 #include "vibrant_logs.h"
 
 // the max length of a VibrantLogs message (what the user enters, not what VibrantLogs inserts before or after messages)
@@ -33,9 +32,27 @@ typedef struct vl_delayed_msg
 	vl_type type;
 } vl_delayed_msg;
 
+typedef struct vl_scheduled_msg
+{
+	// msg to print
+	char msg[VL_MAX_MSG_LEN + 1];
+	// date-time
+	timey_datetime dt;
+	// time stamp
+	timey_timestamp ts;
+	// log type
+	vl_type type;
+	// if this msg was scheduled using a timestamp only
+	bool scheduled_ts;
+} vl_scheduled_msg;
+
 // storage of all delayed logs:
 static vl_delayed_msg delayed_msgs[VL_MAX_DELAY_MSGS];
 static size_t delayed_msg_count = 0;
+
+// storage of all scheduled logs:
+static vl_scheduled_msg scheduled_msgs[VL_MAX_DELAY_MSGS];
+static size_t scheduled_msg_count = 0;
 
 static bool vl_is_init = false;
 static vl_config config = {0};
@@ -192,268 +209,6 @@ vl_config *vl_curr_config()
 	return &config;
 }
 
-int vl_get_time(char *buffer, size_t size)
-{
-	if(!buffer)
-		return 0;
-
-	// time info:
-	time_t raw_time = 0;
-	struct tm *time_info;
-	
-	// obtain curr time
-	time(&raw_time);
-
-	// convert to local time
-	time_info = localtime(&raw_time);
-
-	// copy string into buffer
-	strftime(buffer, size, "[%H:%M:%S]", time_info);
-
-	return 1;
-}
-int vl_get_date(char *buffer, size_t size)
-{
-	if(!buffer)
-		return 0;
-
-	// date info:
-	time_t raw_time = 0;
-	struct tm *time_info;
-
-	// obtain curr time
-	time(&raw_time);
-
-	// convert to local time
-	time_info = localtime(&raw_time);
-
-	// copy string into buffer
-	strftime(buffer, size, "[%m-%d-%Y]", time_info);
-
-	return 1;
-}
-
-timey_timestamp vl_get_timestamp()
-{
-	timey_timestamp ts = {0};
-
-	// obtain time string
-	char time[VL_TIME_STR_LEN];
-	vl_get_time(time, sizeof time);
-
-	// parse hour, min, and sec from time string: ('[HH:MM:SS]')
-	char hour[3], min[3], sec[3]; // sizes must 3 to include '\0'
-
-	// copy substrings into respective buffers
-	memcpy(hour, time + 1, 2);
-	hour[2] = '\0';
-
-	memcpy(min, time + 4, 2);
-	min[2] = '\0';
-
-	memcpy(sec, time + 7, 2);
-	sec[2] = '\0';
-
-	ts.hour = strtoul(hour, NULL, 10);
-	ts.min = strtoul(min, NULL, 10);
-	ts.sec = strtoul(sec, NULL, 10);
-
-	return ts;
-}
-// going to next complete time (either next hour or next minute, or both)
-static void vl_increment_timestamp(timey_timestamp *ts)
-{
-	ts -> min -= 60;
-	ts -> hour += 1;
-	if(ts -> hour > 24)
-		ts -> hour -= 24;
-}
-timey_timestamp vl_get_future_timestamp(const timey_timestamp *now, unsigned int hours, unsigned int min, unsigned int sec)
-{
-	if(!now)
-	{
-		vl_log(VL_ERROR, "Cannot get future timestamp, 'now' is null.");
-		return (timey_timestamp) {0};
-	}
-
-	timey_timestamp future = *now;
-
-	// add hours, min, and sec to now
-
-	// first add hours to now.hour
-	future.hour += hours;
-	// then, as long as now.hour exceeds 24, subtract 24 to loop back
-	while(future.hour > 24)
-		future.hour -= 24;
-
-	// now add minutes
-	future.min += min;
-	/* then, as long as now.minute exceeds 60, subtract 60 to loop back,
-	and also increment now.hour (looping hour back as needed) */
-	while(future.min > 60)
-		vl_increment_timestamp(&future);
-
-	// now add seconds
-	future.sec += sec;
-	/* then, as long as now.second exceeds 60, subtract 60 to loop back,
-	and alsoincrement now.minute (looping back min as needed, and
-	also checking for a new hour reached if now.minute reaches 60). */
-	while(future.sec > 60)
-	{
-		future.sec -= 60;
-		future.min += 1;
-		if(future.min > 60)
-			vl_increment_timestamp(&future);
-	}
-
-	return future;
-}
-
-// figure out if a year is a leap year
-static bool vl_is_leap_year(unsigned int year)
-{
-	return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
-}
-timey_datetime vl_get_datetime()
-{
-	timey_datetime dt = {0};
-
-	// obtain date string
-	char date[VL_DATE_STR_LEN];
-	vl_get_date(date, sizeof date);
-
-	// parse year, month, and day from date string: ('[MM-DD-YYYY]')
-	char year[5], month[3], day[3];
-
-	// copy substrings into respective buffers
-	memcpy(month, date + 1, 2);
-	month[2] = '\0';
-
-	memcpy(day, date + 4, 2);
-	day[2] = '\0';
-
-	memcpy(year, date + 7, 4);
-	year[4] = '\0';
-
-	dt.year = strtoul(year, NULL, 10);
-	dt.month = strtoul(month, NULL, 10);
-	dt.day = strtoul(day, NULL, 10);
-	// determine if the year is a leap year
-	dt.is_leap_year = vl_is_leap_year(dt.year);
-
-	// get timestamp
-	dt.time = vl_get_timestamp();
-
-	return dt;
-}
-// get max day count for month in a date-time
-static unsigned int vl_num_days_in_month(timey_datetime *dt)
-{
-	if(dt -> month == 1 || dt -> month == 3 || dt -> month == 5
-			|| dt -> month == 7 || dt -> month == 8 || dt -> month == 10
-			|| dt -> month == 12)
-		return 31;
-	else if(dt -> month == 2)
-		return dt -> is_leap_year ? 29 : 28;
-	else
-		return 30;
-}
-// going to next complete date-time (either next year or next month, or both)
-static void vl_increment_datetime(timey_datetime *dt)
-{
-	dt -> month -= 12;
-	dt -> year += 1;
-	// re-determine if year is a leap year
-	dt -> is_leap_year = vl_is_leap_year(dt -> year);
-}
-// adding just days to a date-time
-static void vl_add_days_datetime(timey_datetime *dt, unsigned int days)
-{
-	dt -> day += days;
-	unsigned int max_month_days = vl_num_days_in_month(dt);
-	while(dt -> day > max_month_days)
-	{
-		dt -> day -= max_month_days;
-		dt -> month += 1;
-		if(dt -> month > 12)
-			vl_increment_datetime(dt);
-		// re-calculate max_month_days
-		max_month_days = vl_num_days_in_month(dt);
-	}
-}
-timey_datetime vl_get_future_datetime(const timey_datetime *now, unsigned int years, unsigned int months, unsigned int days, unsigned int hours, unsigned int min, unsigned int sec)
-{
-	if(!now)
-	{
-		vl_log(VL_ERROR, "Cannot get future date-time, 'now' is null.");
-		return (timey_datetime) {0};
-	}
-
-	timey_datetime future = *now;
-
-	// add years, months, and days to now
-
-	// first add years to now.year
-	future.year += years;
-	
-	// now add months
-	future.month += months;
-	/* then as long as future.months exceeds 12, subtract 12 to loop back,
-	and also increment future.years */
-	while(future.month > 12)
-		vl_increment_datetime(&future);
-
-	// now add days
-	vl_add_days_datetime(&future, days);
-
-	// add to time (while tracking new days, months, and years)
-	timey_timestamp *fts = &future.time;
-
-	// first add hours
-	fts -> hour += hours;
-	// then, as long as future.hour exceeds 24, subtract 24 to loop back, and increase day
-	while(fts -> hour > 24)
-	{
-		fts -> hour -= 24;
-		vl_add_days_datetime(&future, 1);
-	}
-
-	// then add min
-	fts -> min += min;
-	// then, as long as future.minute exceeds 60, subtract 60 to loop back, and increase hour (check for new day as well)
-	while(fts -> min > 60)
-	{
-		fts -> min -= 60;
-		fts -> hour += 1;
-		if(fts -> hour > 24)
-		{
-			fts -> hour -= 24;
-			vl_add_days_datetime(&future, 1);
-		}
-	}
-
-	// then add sec
-	fts -> sec += sec;
-	// then, as long as future.second exceeds 60, subtract 60 to loop back, and increase minute (check for new hour/new day as well)
-	while(fts -> sec > 60)
-	{
-		fts -> sec -= 60;
-		fts -> min += 1;
-		if(fts -> min > 60)
-		{
-			fts -> min -= 60;
-			fts -> hour += 1;
-			if(fts -> hour > 24)
-			{
-				fts -> hour -= 24;
-				vl_add_days_datetime(&future, 1);
-			}
-		}
-	}
-
-	return future;
-}
-
 int vl_log(vl_type log_type, const char *fmt, ...)
 {
 	// check for null message:
@@ -501,7 +256,7 @@ int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...)
 			return 0;
 	}
 
-	// obtain the current vl_delayed_msg and modify it:
+	// obtain the current vl_delayed_msg and update it:
 	vl_delayed_msg *msg = &delayed_msgs[delayed_msg_count];
 	msg -> type = log_type;
 	msg -> remaining_time_sec = seconds;
@@ -515,8 +270,79 @@ int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...)
 
 	return 1;
 }
+int vl_schedule_log_ts(vl_type log_type, timey_timestamp *ts, const char *fmt, ...)
+{
+	if(!ts || !fmt)
+		return 0;
+
+	if(scheduled_msg_count >= VL_MAX_DELAY_MSGS)
+		return 0;
+
+	char buf[VL_MAX_MSG_LEN + 1];
+
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf(buf, sizeof buf, fmt, args);
+	va_end(args);
+
+	for(size_t i = 0; i < scheduled_msg_count; ++i)
+	{
+		vl_scheduled_msg *existing = &scheduled_msgs[i];
+		if(existing -> type == log_type && strcmp(existing -> msg, buf) == 0)
+			return 0;
+	}
+
+	vl_scheduled_msg *msg = &scheduled_msgs[scheduled_msg_count];
+	msg -> type = log_type;
+	msg -> ts = *ts;
+	msg -> dt = (timey_datetime) {0};
+	msg -> scheduled_ts = true;
+
+	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
+	msg -> msg[VL_MAX_MSG_LEN] = '\0';
+
+	scheduled_msg_count++;
+
+	return 1;
+}
+int vl_schedule_log_dt(vl_type log_type, timey_datetime *dt, const char *fmt, ...)
+{
+	if(!dt || !fmt)
+		return 0;
+
+	if(scheduled_msg_count >= VL_MAX_DELAY_MSGS)
+		return 0;
+
+	char buf[VL_MAX_MSG_LEN + 1];
+
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf(buf, sizeof buf, fmt, args);
+	va_end(args);
+
+	for(size_t i = 0; i < scheduled_msg_count; ++i)
+	{
+		vl_scheduled_msg *existing = &scheduled_msgs[i];
+		if(existing -> type == log_type && strcmp(existing -> msg, buf) == 0)
+			return 0;
+	}
+
+	vl_scheduled_msg *msg = &scheduled_msgs[scheduled_msg_count];
+	msg -> type = log_type;
+	msg -> dt = *dt;
+	msg -> ts = (timey_timestamp) {0};
+	msg -> scheduled_ts = false;
+
+	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
+	msg -> msg[VL_MAX_MSG_LEN] = '\0';
+
+	scheduled_msg_count++;
+
+	return 1;
+}
 void vl_update(double delta_time)
 {
+	// run through delayed messages:
 	for(size_t i = 0; i < delayed_msg_count;)
 	{
 		// get current message to work on
@@ -530,9 +356,60 @@ void vl_update(double delta_time)
 		{
 			vl_print(msg -> type, msg -> msg);
 
+			// remove this msg and replace it with the last element
 			delayed_msgs[i] = delayed_msgs[--delayed_msg_count];
 		}
 		else
 			i++;
+	}
+
+	// run through scheduled messages:
+	for(size_t i = 0; i < scheduled_msg_count;)
+	{
+		// get current timestamp and datetime
+		timey_timestamp now_ts = timey_curr_timestamp();
+		timey_datetime now_dt = timey_curr_datetime();
+
+		// get current message to work on
+		vl_scheduled_msg *msg = &scheduled_msgs[i];
+
+		// check its timestamp or datetime vs. now_ts and now_dt
+		if(msg -> scheduled_ts)
+		{
+			// handle timestamp only
+
+			// first see if same period
+			if(strcmp(msg -> ts.period, now_ts.period) == 0)
+			{
+				// now match hours, min, and sec
+				if(msg -> ts.hour12 == now_ts.hour12 && msg -> ts.min == now_ts.min && msg -> ts.sec == now_ts.sec)
+				{
+					vl_print(msg -> type, msg -> msg);
+
+					scheduled_msgs[i] = scheduled_msgs[--scheduled_msg_count];
+				}
+				else
+					i++;
+			}
+		}
+		else
+		{
+			// handle datetime
+
+			// first see if same period
+			if(strcmp(msg -> dt.time.period, now_dt.time.period) == 0)
+			{
+				if(msg -> dt.year == now_dt.year && msg -> dt.month == now_dt.month && msg -> dt.day == now_dt.day &&
+						msg -> dt.time.hour12 == now_dt.time.hour12 && msg -> dt.time.min == now_dt.time.min &&
+						msg -> dt.time.sec == now_dt.time.sec)
+				{
+					vl_print(msg -> type, msg -> msg);
+
+					scheduled_msgs[i] = scheduled_msgs[--scheduled_msg_count];
+				}
+				else
+					i++;
+			}
+		}
 	}
 }

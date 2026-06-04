@@ -97,30 +97,49 @@ $(function(){initNavTree('de/de6/structtimey__timestamp.html','../../','d6/d3a/s
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3e8dae81f7b61a53e8800db85bf0dc4b" id="r_a3e8dae81f7b61a53e8800db85bf0dc4b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e8dae81f7b61a53e8800db85bf0dc4b">hour</a></td></tr>
+<tr class="memitem:a4988f1f11f61a47441f7291bf1af739c" id="r_a4988f1f11f61a47441f7291bf1af739c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4988f1f11f61a47441f7291bf1af739c">hour24</a></td></tr>
+<tr class="memitem:ab833a7e356e77413dea6464ee48abdb3" id="r_ab833a7e356e77413dea6464ee48abdb3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab833a7e356e77413dea6464ee48abdb3">hour12</a></td></tr>
 <tr class="memitem:aa41ad7eef5bbe5177905f4cbfe434e7c" id="r_aa41ad7eef5bbe5177905f4cbfe434e7c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa41ad7eef5bbe5177905f4cbfe434e7c">min</a></td></tr>
 <tr class="memitem:a842101fab2858c53f3db7728ba926ce2" id="r_a842101fab2858c53f3db7728ba926ce2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a842101fab2858c53f3db7728ba926ce2">sec</a></td></tr>
+<tr class="memitem:a85ff737da9d8fec7679f800c3d2331d9" id="r_a85ff737da9d8fec7679f800c3d2331d9"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85ff737da9d8fec7679f800c3d2331d9">period</a> [3]</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds time data (hour, minute, and second).</p>
 <p>Each time component is an unsigned integer. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00008">8</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00010">10</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a3e8dae81f7b61a53e8800db85bf0dc4b" name="a3e8dae81f7b61a53e8800db85bf0dc4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e8dae81f7b61a53e8800db85bf0dc4b">&#9670;&#160;</a></span>hour</h2>
+<a id="ab833a7e356e77413dea6464ee48abdb3" name="ab833a7e356e77413dea6464ee48abdb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab833a7e356e77413dea6464ee48abdb3">&#9670;&#160;</a></span>hour12</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int timey_timestamp::hour</td>
+          <td class="memname">unsigned int timey_timestamp::hour12</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The time's hour. </p>
+<p>The time's hour in 12-hour format. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00013">13</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00019">19</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+
+</div>
+</div>
+<a id="a4988f1f11f61a47441f7291bf1af739c" name="a4988f1f11f61a47441f7291bf1af739c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4988f1f11f61a47441f7291bf1af739c">&#9670;&#160;</a></span>hour24</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int timey_timestamp::hour24</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The time's hour in 24-hour format. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00015">15</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
@@ -137,7 +156,24 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The time's minute. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00017">17</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00023">23</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+
+</div>
+</div>
+<a id="a85ff737da9d8fec7679f800c3d2331d9" name="a85ff737da9d8fec7679f800c3d2331d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85ff737da9d8fec7679f800c3d2331d9">&#9670;&#160;</a></span>period</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char timey_timestamp::period[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Either AM or PM according to the current time. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00031">31</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
@@ -154,7 +190,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The time's second. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00021">21</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00027">27</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>VibrantLogs: vl_color Struct Reference</title>
+<title>VibrantLogs: timey_raw_time Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d3/d2b/structvl__color.html','../../','d9/df5/structvl__color-members'); });
+$(function(){initNavTree('d6/d2b/structtimey__raw__time.html','../../','d6/d05/structtimey__raw__time-members'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,76 +89,95 @@ $(function(){initNavTree('d3/d2b/structvl__color.html','../../','d9/df5/structvl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">vl_color Struct Reference</div></div>
+  <div class="headertitle"><div class="title">timey_raw_time Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae1f51b26487bba111b98db44b794a66a" id="r_ae1f51b26487bba111b98db44b794a66a"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1f51b26487bba111b98db44b794a66a">r</a></td></tr>
-<tr class="memitem:ac22590772d6b79d1c76c96202131ff80" id="r_ac22590772d6b79d1c76c96202131ff80"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac22590772d6b79d1c76c96202131ff80">g</a></td></tr>
-<tr class="memitem:aafdd5a0a43169e6cdc99d28728243fb9" id="r_aafdd5a0a43169e6cdc99d28728243fb9"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafdd5a0a43169e6cdc99d28728243fb9">b</a></td></tr>
+<tr class="memitem:a401ec0e7e4dbae957efe7fef0d5dcc3d" id="r_a401ec0e7e4dbae957efe7fef0d5dcc3d"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a401ec0e7e4dbae957efe7fef0d5dcc3d">sec</a></td></tr>
+<tr class="memitem:a7a94eeabef536630b4a52104d5416a6b" id="r_a7a94eeabef536630b4a52104d5416a6b"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a94eeabef536630b4a52104d5416a6b">millisec</a></td></tr>
+<tr class="memitem:a5becc3a2702e327c4c21d8df46040324" id="r_a5becc3a2702e327c4c21d8df46040324"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5becc3a2702e327c4c21d8df46040324">microsec</a></td></tr>
+<tr class="memitem:aa322db1649e0d700d060467fb50902d5" id="r_aa322db1649e0d700d060467fb50902d5"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa322db1649e0d700d060467fb50902d5">nanosec</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a color using values of 0 to 255. </p>
+<div class="textblock"><p>Holds raw time data.</p>
+<p>Raw time data is simply the number of seconds since the UNIX epoch (Jan 1, 1970). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00037">37</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00040">40</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="aafdd5a0a43169e6cdc99d28728243fb9" name="aafdd5a0a43169e6cdc99d28728243fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafdd5a0a43169e6cdc99d28728243fb9">&#9670;&#160;</a></span>b</h2>
+<a id="a5becc3a2702e327c4c21d8df46040324" name="a5becc3a2702e327c4c21d8df46040324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5becc3a2702e327c4c21d8df46040324">&#9670;&#160;</a></span>microsec</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char vl_color::b</td>
+          <td class="memname">time_t timey_raw_time::microsec</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The blue value. </p>
+<p>The number of microseconds since the epoch. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00050">50</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00053">53</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
-<a id="ac22590772d6b79d1c76c96202131ff80" name="ac22590772d6b79d1c76c96202131ff80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac22590772d6b79d1c76c96202131ff80">&#9670;&#160;</a></span>g</h2>
+<a id="a7a94eeabef536630b4a52104d5416a6b" name="a7a94eeabef536630b4a52104d5416a6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a94eeabef536630b4a52104d5416a6b">&#9670;&#160;</a></span>millisec</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char vl_color::g</td>
+          <td class="memname">time_t timey_raw_time::millisec</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The green value. </p>
+<p>The number of milliseconds since the epoch. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00046">46</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00049">49</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
-<a id="ae1f51b26487bba111b98db44b794a66a" name="ae1f51b26487bba111b98db44b794a66a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1f51b26487bba111b98db44b794a66a">&#9670;&#160;</a></span>r</h2>
+<a id="aa322db1649e0d700d060467fb50902d5" name="aa322db1649e0d700d060467fb50902d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa322db1649e0d700d060467fb50902d5">&#9670;&#160;</a></span>nanosec</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char vl_color::r</td>
+          <td class="memname">time_t timey_raw_time::nanosec</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The red value. </p>
+<p>The number of nanoseconds since the epoch. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../da/d25/vibrant__logs_8h_source.html#l00042">42</a> of file <a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00057">57</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
+
+</div>
+</div>
+<a id="a401ec0e7e4dbae957efe7fef0d5dcc3d" name="a401ec0e7e4dbae957efe7fef0d5dcc3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a401ec0e7e4dbae957efe7fef0d5dcc3d">&#9670;&#160;</a></span>sec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">time_t timey_raw_time::sec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of seconds since the epoch. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d05/timey_8h_source.html#l00045">45</a> of file <a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/<a class="el" href="../../da/d25/vibrant__logs_8h_source.html">vibrant_logs.h</a></li>
+<li>include/<a class="el" href="../../d8/d05/timey_8h_source.html">timey.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -173,7 +192,7 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d3/d2b/structvl__color.html">vl_color</a></li>
+    <li class="navelem"><a href="../../d6/d2b/structtimey__raw__time.html">timey_raw_time</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
