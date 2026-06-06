@@ -1,7 +1,6 @@
 #pragma once
 
 #include <stdio.h>
-#include "timey.h"
 
 /**
   Represents the type of a log statement.
@@ -283,6 +282,8 @@ VL_API int vl_log(vl_type log_type, const char *fmt, ...);
   @return 1 on success, 0 on failure.
 */
 VL_API int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...);
+typedef struct timey_timestamp timey_timestamp;
+typedef struct timey_datetime timey_datetime;
 /**
   Schedules a message using a timestamp.
 
@@ -294,7 +295,7 @@ VL_API int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...);
 
   @return 1 on success, 0 on failure.
 */
-VL_API int vl_schedule_log_ts(vl_type log_type, timey_timestamp *ts, const char *fmt, ...);
+VL_API int vl_schedule_log_ts(vl_type log_type, struct timey_timestamp *ts, const char *fmt, ...);
 /**
   Schedules a message using a datetime.
 
@@ -306,7 +307,7 @@ VL_API int vl_schedule_log_ts(vl_type log_type, timey_timestamp *ts, const char 
 
   @return 1 on success, 0 on failure.
 */
-VL_API int vl_schedule_log_dt(vl_type log_type, timey_datetime *dt, const char *fmt, ...);
+VL_API int vl_schedule_log_dt(vl_type log_type, struct timey_datetime *dt, const char *fmt, ...);
 /**
   Updates the VibrantLogs library.
 

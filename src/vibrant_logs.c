@@ -11,6 +11,7 @@
 	#include <unistd.h>
 #endif
 
+#include "timey.h"
 #include "vibrant_logs.h"
 
 // the max length of a VibrantLogs message (what the user enters, not what VibrantLogs inserts before or after messages)
