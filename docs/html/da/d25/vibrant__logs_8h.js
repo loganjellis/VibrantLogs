@@ -30,8 +30,8 @@ var vibrant__logs_8h =
     [ "vl_delay_log", "da/d25/vibrant__logs_8h.html#a3d9432f7fd8699928a2dad27c4378119", null ],
     [ "vl_init", "da/d25/vibrant__logs_8h.html#a9e2f27e0e7a53c27935b7cbe66d0e2fb", null ],
     [ "vl_log", "da/d25/vibrant__logs_8h.html#aed16ae1b5919bc99745d1ec9f73dfd11", null ],
-    [ "vl_schedule_log_dt", "da/d25/vibrant__logs_8h.html#ad1bf6edbca41179d4127fdf2ef7d31fb", null ],
-    [ "vl_schedule_log_ts", "da/d25/vibrant__logs_8h.html#ab27056f1466fc07256d1b5d799219540", null ],
+    [ "vl_schedule_log_dt", "da/d25/vibrant__logs_8h.html#a6ed33f1e73e1bc93838852e4ad67760f", null ],
+    [ "vl_schedule_log_ts", "da/d25/vibrant__logs_8h.html#a018227371e7d07f3500ba42b1081863b", null ],
     [ "vl_update", "da/d25/vibrant__logs_8h.html#ae2d8bb8d6aa8619f61374ab674078cee", null ],
     [ "vl_use_config", "da/d25/vibrant__logs_8h.html#a9020baa18fecdcb9593513d60d9dd48b", null ]
 ];
