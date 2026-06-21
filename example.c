@@ -16,11 +16,11 @@ int main(void)
 	vl_cfg -> print_date = true;
 
 	// testing each log type:
-	vl_log(VL_INFO, "Info test.");
-	vl_log(VL_SUCCESS, "Success!");
-	vl_log(VL_DEBUG, "Debugging...");
-	vl_log(VL_WARNING, "Warning.");
-	vl_log(VL_ERROR, "ERROR!");
+	vl_log(VL_INFO, "Info test.\n");
+	vl_log(VL_SUCCESS, "Success!\n");
+	vl_log(VL_DEBUG, "Debugging...\n");
+	vl_log(VL_WARNING, "Warning.\n");
+	vl_log(VL_ERROR, "Encountered an error!");
 
 	return 0;
 }

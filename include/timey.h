@@ -141,6 +141,11 @@ TIMEY_API timey_timestamp timey_curr_timestamp(void);
   timestamp as a starting point.
 */
 TIMEY_API timey_timestamp timey_future_timestamp(timey_timestamp *now, unsigned int hours, unsigned int minutes, unsigned int seconds);
+/**
+  Obtains a timestamp in the future using the
+  current timestamp as the starting point.
+*/
+TIMEY_API timey_timestamp timey_future_timestamp_from_now(unsigned int hours, unsigned int minutes, unsigned int seconds);
 
 /**
   Obtains a datetime with the current date and time.
@@ -151,6 +156,11 @@ TIMEY_API timey_datetime timey_curr_datetime(void);
   datetime as a starting point.
 */
 TIMEY_API timey_datetime timey_future_datetime(timey_datetime *now, unsigned int years, unsigned int months, unsigned int days, unsigned int hours, unsigned int minutes, unsigned int seconds);
+/**
+  Obtains a datetime in the future using the current
+  datetime as the starting point.
+*/
+TIMEY_API timey_datetime timey_future_datetime_from_now(unsigned int years, unsigned int months, unsigned int days, unsigned int hours, unsigned int minutes, unsigned int seconds);
 
 
 // util-functions:

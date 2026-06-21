@@ -31,6 +31,8 @@ typedef struct vl_delayed_msg
 	double remaining_time_sec;
 	// the log type
 	vl_type type;
+	// should the message be logged or just printed?
+	bool log;
 } vl_delayed_msg;
 
 typedef struct vl_scheduled_msg
@@ -45,6 +47,8 @@ typedef struct vl_scheduled_msg
 	vl_type type;
 	// if this msg was scheduled using a timestamp only
 	bool scheduled_ts;
+	// should the message be logged or just printed?
+	bool log;
 } vl_scheduled_msg;
 
 // storage of all delayed logs:
@@ -87,13 +91,16 @@ static void vl_get_str(char *buf, size_t size, const char *fmt, ...)
 }
 
 // print a message:
-static void vl_print(vl_type type, const char *msg)
+static void vl_print_msg(vl_type type, const char *msg, bool print_label, bool print_time, bool print_date)
 {
 	// see if config.output_destination is NULL, indicating vl_init() was never called
 	if(!config.output_destination)
 	{
 		// no check for 'use_colors' here since printf uses stdout by default
-		printf("\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(config.colors.error_prefix_color), vl_rgb(config.colors.error_color), "Output destination is NULL, make sure you call vl_init()!");
+		if(print_label)
+			printf("\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.error_prefix_color), vl_rgb(config.colors.error_color), "Output destination is NULL, make sure you call vl_init()!");
+		else
+			printf("\x1b[38;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.error_prefix_color), vl_rgb(config.colors.error_color), "Output destination is NULL, make sure you call vl_init()!");
 		return;
 	}
 
@@ -105,8 +112,8 @@ static void vl_print(vl_type type, const char *msg)
 	if(type == VL_WARNING && config.log_level == VL_ERROR)
 		return;
 
-	// if 'print_time' is true in the config, obtain and format time string:
-	if(config.print_time)
+	// if 'print_time' is true, obtain and format time string:
+	if(print_time)
 	{
 		// obtain the time string
 		char time_buf[VL_TIME_STR_LEN];
@@ -123,8 +130,8 @@ static void vl_print(vl_type type, const char *msg)
 		fwrite(time_str, sizeof(char), strlen(time_str), config.output_destination);
 	}
 
-	// if 'print_date' is true in the config, obtain and format date string:
-	if(config.print_date)
+	// if 'print_date' is true, obtain and format date string:
+	if(print_date)
 	{
 		// obtain the date string
 		char date_buf[VL_DATE_STR_LEN];
@@ -147,35 +154,85 @@ static void vl_print(vl_type type, const char *msg)
 	switch(type)
 	{
 		case VL_INFO:
-			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ INFO ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(config.colors.info_prefix_color), vl_rgb(config.colors.info_color), msg);
+			if(print_label)
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ INFO ] \x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.info_prefix_color), vl_rgb(config.colors.info_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "[ INFO ] %s", msg);
+			}
 			else
-				vl_get_str(final_str, sizeof final_str, "[ INFO ] %s\n", msg);
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.info_prefix_color), vl_rgb(config.colors.info_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "%s", msg);
+			}
 			break;
 		case VL_SUCCESS:
-			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ SUCCESS ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(config.colors.success_prefix_color), vl_rgb(config.colors.success_color), msg);
+			if(print_label)
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ SUCCESS ] \x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.success_prefix_color), vl_rgb(config.colors.success_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "[ SUCCESS ] %s", msg);
+			}
 			else
-				vl_get_str(final_str, sizeof final_str, "[ SUCCESS ] %s\n", msg);
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.success_prefix_color), vl_rgb(config.colors.success_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "%s", msg);
+			}
 			break;
 		case VL_DEBUG:
-			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ DEBUG ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(config.colors.debug_prefix_color), vl_rgb(config.colors.debug_color), msg);
+			if(print_label)
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ DEBUG ] \x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.debug_prefix_color), vl_rgb(config.colors.debug_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "[ DEBUG ] %s", msg);
+			}
 			else
-				vl_get_str(final_str, sizeof final_str, "[ DEBUG ] %s\n", msg);
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.debug_prefix_color), vl_rgb(config.colors.debug_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "%s", msg);
+			}
 			break;
 		case VL_WARNING:
-			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ WARNING ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(config.colors.warning_prefix_color), vl_rgb(config.colors.warning_color), msg);
+			if(print_label)
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ WARNING ] \x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.warning_prefix_color), vl_rgb(config.colors.warning_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "[ WARNING ] %s", msg);
+			}
 			else
-				vl_get_str(final_str, sizeof final_str, "[ WARNING ] %s\n", msg);
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.warning_prefix_color), vl_rgb(config.colors.warning_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "%s", msg);
+			}
 			break;
 		case VL_ERROR:
 		default:
-			if(use_colors)
-				vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m\n", vl_rgb(config.colors.error_prefix_color), vl_rgb(config.colors.error_color), msg);
+			if(print_label)
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm[ ERROR ] \x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.error_prefix_color), vl_rgb(config.colors.error_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "[ ERROR ] %s", msg);
+			}
 			else
-				vl_get_str(final_str, sizeof final_str, "[ ERROR ] %s\n", msg);
+			{
+				if(use_colors)
+					vl_get_str(final_str, sizeof final_str, "\x1b[38;2;%d;%d;%dm\x1b[38;2;%d;%d;%dm%s\x1b[0m", vl_rgb(config.colors.error_prefix_color), vl_rgb(config.colors.error_color), msg);
+				else
+					vl_get_str(final_str, sizeof final_str, "%s", msg);
+			}
 			break;
 	}
 
@@ -226,30 +283,40 @@ int vl_log(vl_type log_type, const char *fmt, ...)
 	va_end(args);
 
 	// print the message immediately
-	vl_print(log_type, buf);
+	vl_print_msg(log_type, buf, true, config.print_time, config.print_date);
 
 	return 1;
 }
-int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...)
+int vl_print(vl_type log_type, const char *fmt, ...)
 {
-	// check for invalid args:
-	if(!fmt || seconds < 0.0)
+	if(!fmt)
 		return 0;
 
-	// avoid overflow
-	if(delayed_msg_count >= VL_MAX_DELAY_MSGS)
-		return 0;
-
-	// temp buffer for formatted string
 	char buf[VL_MAX_MSG_LEN + 1];
 
-	// populate buffer:
 	va_list args;
 	va_start(args, fmt);
 	vsnprintf(buf, sizeof buf, fmt, args);
 	va_end(args);
 
-	// avoid duplicate messages
+	vl_print_msg(log_type, buf, false, false, false);
+
+	return 1;
+}
+
+int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...)
+{
+	if(!fmt || seconds < 0.0)
+		return 0;
+	if(delayed_msg_count >= VL_MAX_DELAY_MSGS)
+		return 0;
+
+	char buf[VL_MAX_MSG_LEN + 1];
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf(buf, sizeof buf, fmt, args);
+	va_end(args);
+
 	for(size_t i = 0; i < delayed_msg_count; ++i)
 	{
 		vl_delayed_msg *existing = &delayed_msgs[i];
@@ -257,19 +324,47 @@ int vl_delay_log(vl_type log_type, double seconds, const char *fmt, ...)
 			return 0;
 	}
 
-	// obtain the current vl_delayed_msg and update it:
 	vl_delayed_msg *msg = &delayed_msgs[delayed_msg_count];
 	msg -> type = log_type;
 	msg -> remaining_time_sec = seconds;
+	msg -> log = true;
 
-	// copy the buffer message but into the current vl_delayed_msg
 	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
 	msg -> msg[VL_MAX_MSG_LEN] = '\0';
-
-	// move to next delayed message
 	delayed_msg_count++;
 
 	return 1;
+}
+int vl_delay_print(vl_type log_type, double seconds, const char *fmt, ...)
+{
+	if(!fmt || seconds < 0.0)
+		return 0;
+	if(delayed_msg_count >= VL_MAX_DELAY_MSGS)
+		return 0;
+
+	char buf[VL_MAX_MSG_LEN + 1];
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf(buf, sizeof buf, fmt, args);
+	va_end(args);
+
+	for(size_t i = 0; i < delayed_msg_count; ++i)
+	{
+		vl_delayed_msg *existing = &delayed_msgs[i];
+		if(existing -> type == log_type && strcmp(existing -> msg, buf) == 0)
+			return 0;
+	}
+
+	vl_delayed_msg *msg = &delayed_msgs[delayed_msg_count];
+	msg -> type = log_type;
+	msg -> remaining_time_sec = seconds;
+	msg -> log = false;
+
+	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
+	msg -> msg[VL_MAX_MSG_LEN] = '\0';
+	delayed_msg_count++;
+
+	return 1;	
 }
 int vl_schedule_log_ts(vl_type log_type, timey_timestamp *ts, const char *fmt, ...)
 {
@@ -298,6 +393,43 @@ int vl_schedule_log_ts(vl_type log_type, timey_timestamp *ts, const char *fmt, .
 	msg -> ts = *ts;
 	msg -> dt = (timey_datetime) {0};
 	msg -> scheduled_ts = true;
+	msg -> log = true;
+
+	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
+	msg -> msg[VL_MAX_MSG_LEN] = '\0';
+
+	scheduled_msg_count++;
+
+	return 1;
+}
+int vl_schedule_print_ts(vl_type log_type, struct timey_timestamp *ts, const char *fmt, ...)
+{
+	if(!ts || !fmt)
+		return 0;
+
+	if(scheduled_msg_count >= VL_MAX_DELAY_MSGS)
+		return 0;
+
+	char buf[VL_MAX_MSG_LEN + 1];
+
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf(buf, sizeof buf, fmt, args);
+	va_end(args);
+
+	for(size_t i = 0; i < scheduled_msg_count; ++i)
+	{
+		vl_scheduled_msg *existing = &scheduled_msgs[i];
+		if(existing -> type == log_type && strcmp(existing -> msg, buf) == 0)
+			return 0;
+	}
+
+	vl_scheduled_msg *msg = &scheduled_msgs[scheduled_msg_count];
+	msg -> type = log_type;
+	msg -> ts = *ts;
+	msg -> dt = (timey_datetime) {0};
+	msg -> scheduled_ts = true;
+	msg -> log = false;
 
 	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
 	msg -> msg[VL_MAX_MSG_LEN] = '\0';
@@ -333,6 +465,7 @@ int vl_schedule_log_dt(vl_type log_type, timey_datetime *dt, const char *fmt, ..
 	msg -> dt = *dt;
 	msg -> ts = (timey_timestamp) {0};
 	msg -> scheduled_ts = false;
+	msg -> log = true;
 
 	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
 	msg -> msg[VL_MAX_MSG_LEN] = '\0';
@@ -341,6 +474,43 @@ int vl_schedule_log_dt(vl_type log_type, timey_datetime *dt, const char *fmt, ..
 
 	return 1;
 }
+int vl_schedule_print_dt(vl_type log_type, timey_datetime *dt, const char *fmt, ...)
+{
+	if(!dt || !fmt)
+		return 0;
+
+	if(scheduled_msg_count >= VL_MAX_DELAY_MSGS)
+		return 0;
+
+	char buf[VL_MAX_MSG_LEN + 1];
+
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf(buf, sizeof buf, fmt, args);
+	va_end(args);
+
+	for(size_t i = 0; i < scheduled_msg_count; ++i)
+	{
+		vl_scheduled_msg *existing = &scheduled_msgs[i];
+		if(existing -> type == log_type && strcmp(existing -> msg, buf) == 0)
+			return 0;
+	}
+
+	vl_scheduled_msg *msg = &scheduled_msgs[scheduled_msg_count];
+	msg -> type = log_type;
+	msg -> dt = *dt;
+	msg -> ts = (timey_timestamp) {0};
+	msg -> scheduled_ts = false;
+	msg -> log = false;
+
+	strncpy(msg -> msg, buf, VL_MAX_MSG_LEN);
+	msg -> msg[VL_MAX_MSG_LEN] = '\0';
+
+	scheduled_msg_count++;
+
+	return 1;
+}
+
 void vl_update(double delta_time)
 {
 	// run through delayed messages:
@@ -355,7 +525,8 @@ void vl_update(double delta_time)
 		// check to see if that message's time has passed
 		if(msg -> remaining_time_sec <= 0.0)
 		{
-			vl_print(msg -> type, msg -> msg);
+			bool log = msg -> log;
+			vl_print_msg(msg -> type, msg -> msg, log, log, log);
 
 			// remove this msg and replace it with the last element
 			delayed_msgs[i] = delayed_msgs[--delayed_msg_count];
@@ -385,7 +556,8 @@ void vl_update(double delta_time)
 				// now match hours, min, and sec
 				if(msg -> ts.hour12 == now_ts.hour12 && msg -> ts.min == now_ts.min && msg -> ts.sec == now_ts.sec)
 				{
-					vl_print(msg -> type, msg -> msg);
+					bool log = msg -> log;
+					vl_print_msg(msg -> type, msg -> msg, log, log, log);
 
 					scheduled_msgs[i] = scheduled_msgs[--scheduled_msg_count];
 				}
@@ -404,7 +576,7 @@ void vl_update(double delta_time)
 						msg -> dt.time.hour12 == now_dt.time.hour12 && msg -> dt.time.min == now_dt.time.min &&
 						msg -> dt.time.sec == now_dt.time.sec)
 				{
-					vl_print(msg -> type, msg -> msg);
+					vl_print_msg(msg -> type, msg -> msg, true, config.print_time, config.print_date);
 
 					scheduled_msgs[i] = scheduled_msgs[--scheduled_msg_count];
 				}
