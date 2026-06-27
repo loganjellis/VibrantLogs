@@ -29,34 +29,34 @@ target_include_directories(vibrant_logs PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT
 target_link_libraries(vibrant_logs PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/lib/libtimey.dll.a")
 
 # executable for testing!
-add_executable(VibrantLogs_test "${CMAKE_CURRENT_SOURCE_DIR}/example.c")
-target_link_libraries(VibrantLogs_test PRIVATE vibrant_logs)
+add_executable(vibrant_logs_test "${CMAKE_CURRENT_SOURCE_DIR}/example.c")
+target_link_libraries(vibrant_logs_test PRIVATE vibrant_logs)
 
 # installing VibrantLogs
 install(TARGETS vibrant_logs
-	EXPORT VibrantLogsTargets
+	EXPORT vibrant_logs_targets
 	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-install(EXPORT VibrantLogsTargets
-	FILE VibrantLogsTargets.cmake
+install(EXPORT vibrant_logs_targets
+	FILE vibrant_logs_targets.cmake
 	NAMESPACE VibrantLogs::
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/VibrantLogs)
 
 configure_package_config_file(
-	${CMAKE_CURRENT_SOURCE_DIR}/cmake/VibrantLogsConfig.cmake.in
-	${CMAKE_CURRENT_BINARY_DIR}/VibrantLogsConfig.cmake
+	${CMAKE_CURRENT_SOURCE_DIR}/cmake/vibrant_logs_config.cmake.in
+	${CMAKE_CURRENT_BINARY_DIR}/vibrant_logs_config.cmake
 	INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/VibrantLogs)
 
 write_basic_package_version_file(
-	${CMAKE_CURRENT_BINARY_DIR}/VibrantLogsConfigVersion.cmake
+	${CMAKE_CURRENT_BINARY_DIR}/vibrant_logs_configVersion.cmake
 	VERSION ${PROJECT_VERSION}
 	COMPATIBILITY SameMajorVersion)
 
 install(FILES
-	${CMAKE_CURRENT_BINARY_DIR}/VibrantLogsConfig.cmake
-	${CMAKE_CURRENT_BINARY_DIR}/VibrantLogsConfigVersion.cmake
+	${CMAKE_CURRENT_BINARY_DIR}/vibrant_logs_config.cmake
+	${CMAKE_CURRENT_BINARY_DIR}/vibrant_logs_configVersion.cmake
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/VibrantLogs)
