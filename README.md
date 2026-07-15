@@ -49,39 +49,6 @@ add_subdirectory(VibrantLogs)
 target_link_libraries(app PRIVATE VibrantLogs::vibrant_logs)
 ```
 
-## Example
-
-For an example of basic usage of the library, refer to `example.c`:
-
-```c
-#include "vibrant_logs.h"
-
-int main(void)
-{
-	// init VibrantLogs!
-	vl_init();
-
-	// update config to print both time and date
-	vl_config *vl_cfg = vl_curr_config();
-	vl_cfg -> colors.time_color = (vl_color) { 150, 150, 255 };
-	vl_cfg -> colors.date_color = (vl_color) { 175, 175, 255 };
-	vl_cfg -> colors.debug_prefix_color = (vl_color) { 200, 100, 100 };
-	vl_cfg -> colors.debug_color = (vl_color) { 225, 150, 150 };
-
-	vl_cfg -> print_time = true;
-	vl_cfg -> print_date = true;
-
-	// testing each log type:
-	vl_log(VL_INFO, "Info test.");
-	vl_log(VL_SUCCESS, "Success!");
-	vl_log(VL_DEBUG, "Debugging...");
-	vl_log(VL_WARNING, "Warning.");
-	vl_log(VL_ERROR, "ERROR!");
-
-	return 0;
-}
-```
-
 ## Documentation and Information
 
 Please refer to the VibrantLogs documentation <a href="docs/html" target="_blank">here</a>.
