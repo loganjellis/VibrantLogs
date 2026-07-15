@@ -5,9 +5,16 @@ set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_C_COMPILER "C:/ProgramData/mingw64/mingw64/bin/gcc.exe")
 
 option(BUILD_SHARED_LIBS "Build using a shared library." ON)
+
+include(FetchContent)
+
+FetchContent_Declare(timey GIT_REPOSITORY https://github.com/loganjellis/Timey.git GIT_TAG main)
+FetchContent_MakeAvailable(timey)
+
+get_target_property(TIMEY_INCLUDE_DIRS timey INTERFACE_INCLUDE_DIRECTORIES)
+message("Timey include dirs: ${TIMEY_INCLUDE_DIRS}")
 
 add_library(vibrant_logs "${CMAKE_CURRENT_SOURCE_DIR}/src/vibrant_logs.c")
 
@@ -15,7 +22,4 @@ target_compile_definitions(vibrant_logs PRIVATE $<$<BOOL:${BUILD_SHARED_LIBS}>:V
 
 target_include_directories(vibrant_logs PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-target_link_libraries(vibrant_logs PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/lib/libtimey.dll.a")
-
-add_executable(vibrant_logs_test "${CMAKE_CURRENT_SOURCE_DIR}/example.c")
-target_link_libraries(vibrant_logs_test PRIVATE vibrant_logs)
+target_link_libraries(vibrant_logs PUBLIC timey)
