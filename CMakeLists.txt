@@ -6,18 +6,13 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-option(BUILD_SHARED_LIBS "Build using a shared library." ON)
-
 include(FetchContent)
-
 FetchContent_Declare(timey GIT_REPOSITORY https://github.com/loganjellis/Timey.git GIT_TAG main)
 FetchContent_MakeAvailable(timey)
 
-get_target_property(TIMEY_INCLUDE_DIRS timey INTERFACE_INCLUDE_DIRECTORIES)
-message("Timey include dirs: ${TIMEY_INCLUDE_DIRS}")
-
 add_library(vibrant_logs "${CMAKE_CURRENT_SOURCE_DIR}/src/vibrant_logs.c")
 
+option(BUILD_SHARED_LIBS "Build using a shared library." ON)
 target_compile_definitions(vibrant_logs PRIVATE $<$<BOOL:${BUILD_SHARED_LIBS}>:VL_EXPORTS>)
 
 target_include_directories(vibrant_logs PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
