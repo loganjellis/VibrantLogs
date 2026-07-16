@@ -231,10 +231,14 @@ typedef struct vl_config
 } vl_config;
 
 #ifdef _WIN32
-	#ifdef VL_EXPORTS
-		#define VL_API __declspec(dllexport)
+	#ifdef VL_DLL
+		#ifdef VL_EXPORTS
+			#define VL_API __declspec(dllexport)
+		#else
+			#define VL_API __declspec(dllimport)
+		#endif
 	#else
-		#define VL_API __declspec(dllimport)
+		#define VL_API
 	#endif
 #else
 	#define VL_API
