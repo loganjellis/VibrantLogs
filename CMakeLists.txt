@@ -9,7 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(BUILD_SHARED_LIBS "Build using a shared library." ON)
 
 include(FetchContent)
-FetchContent_Declare(timey GIT_REPOSITORY https://github.com/loganjellis/Timey.git GIT_TAG main)
+FetchContent_Declare(timey GIT_REPOSITORY https://github.com/lojelly/Timey.git GIT_TAG main)
 FetchContent_MakeAvailable(timey)
 
 add_library(vibrant_logs "${CMAKE_CURRENT_SOURCE_DIR}/src/vibrant_logs.c")
